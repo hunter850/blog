@@ -2,10 +2,14 @@ import { Fragment } from "react";
 // components
 import BlogPage from "@/components/pages/BlogPage";
 
-function Blog(): React.JSX.Element {
+export interface BlogProps {
+    params: { lang: string };
+}
+
+async function Blog(props: BlogProps): Promise<React.JSX.Element> {
     return (
         <Fragment>
-            <BlogPage />
+            <BlogPage {...props} />
         </Fragment>
     );
 }

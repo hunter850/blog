@@ -5,7 +5,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/styles/theme";
 import CssBaseline from "@mui/material/CssBaseline";
-import "./globals.css";
+import "../globals.css";
 
 const roboto = Roboto({
     weight: ["300", "400", "500", "700"],
@@ -21,11 +21,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
     children,
+    params,
 }: Readonly<{
     children: React.ReactNode;
+    params: { lang: string };
 }>) {
+    const lang = typeof params.lang === "string" && params.lang !== "" ? params.lang : "zh-TW";
     return (
-        <html lang="en">
+        <html lang={lang}>
             <body className={`${roboto.variable} antialiased`} id="root">
                 <AppRouterCacheProvider options={{ key: "css" }}>
                     <StyledEngineProvider>
