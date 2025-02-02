@@ -5,7 +5,11 @@ import { useRouter } from "next/navigation";
 // configs
 import { line_login_api } from "@/config/api_configs";
 
-function LineLoginPage(): React.JSX.Element {
+export interface LineLoginPageProps {
+    lang: string;
+}
+
+function LineLoginPage(props: LineLoginPageProps): React.JSX.Element {
     const router = useRouter();
     useEffect(() => {
         (async () => {
@@ -19,7 +23,7 @@ function LineLoginPage(): React.JSX.Element {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ code, state }),
+                    body: JSON.stringify({ code, state, lang: props.lang }),
                 });
                 const result = await response.json();
                 if (response.status <= 200 && response.status < 300 && result?.success === true) {

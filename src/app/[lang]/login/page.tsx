@@ -2,10 +2,14 @@ import { Fragment } from "react";
 // components
 import LoginPage from "@/components/pages/LoginPage";
 
-function Login(): React.JSX.Element {
+export interface LoginProps {
+    params: Promise<{ lang: string }>;
+}
+
+function Login(props: LoginProps): React.JSX.Element {
     return (
         <Fragment>
-            <LoginPage />
+            <LoginPage {...props} />
         </Fragment>
     );
 }

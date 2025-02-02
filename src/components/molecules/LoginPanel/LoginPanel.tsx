@@ -2,10 +2,14 @@
 import CentralBox from "@/components/atoms/CentralBox";
 import LineLoginButton from "@/components/atoms/LineLoginButton";
 
-function LoginPanel(): React.JSX.Element {
+export interface LoginPanel {
+    lang: string;
+}
+
+function LoginPanel(props: LoginPanel): React.JSX.Element {
     return (
         <CentralBox>
-            <LineLoginButton />
+            <LineLoginButton lang={props.lang} />
         </CentralBox>
     );
 }
