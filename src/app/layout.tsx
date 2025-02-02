@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
+import StyledEngineProvider from "@/providers/TailwindInjectProvider";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "@/styles/theme";
+import CssBaseline from "@mui/material/CssBaseline";
 import "./globals.css";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
+const roboto = Roboto({
+    weight: ["300", "400", "500", "700"],
     subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
+    display: "swap",
+    variable: "--font-roboto",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +26,16 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+            <body className={`${roboto.variable} antialiased`} id="root">
+                <AppRouterCacheProvider options={{ key: "css" }}>
+                    <StyledEngineProvider>
+                        <ThemeProvider theme={theme}>
+                            <CssBaseline />
+                            {children}
+                        </ThemeProvider>
+                    </StyledEngineProvider>
+                </AppRouterCacheProvider>
+            </body>
         </html>
     );
 }
