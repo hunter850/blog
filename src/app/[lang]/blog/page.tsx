@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import BlogPage from "@/components/pages/BlogPage";
 
 export interface BlogProps {
-    params: { lang: string };
+    params: Promise<{ lang: string }>;
 }
 
 async function Blog(props: BlogProps): Promise<React.JSX.Element> {

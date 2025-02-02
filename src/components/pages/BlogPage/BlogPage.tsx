@@ -7,7 +7,7 @@ import loadTranslations from "@/utils/loadTranslations";
 import type { BlogProps } from "@/app/[lang]/blog/page";
 
 async function BlogPage(props: BlogProps): Promise<React.JSX.Element> {
-    const { lang } = props.params;
+    const { lang } = await props.params;
     const translations = await loadTranslations(lang);
     return (
         <Fragment>
