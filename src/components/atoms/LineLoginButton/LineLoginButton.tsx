@@ -42,7 +42,7 @@ function LineLoginButton(props: LineLoginButtonProps): React.JSX.Element {
             <LoginButton
                 src={lineLogo}
                 imgAlt="Line Logo"
-                buttonClassName={classNames("bg-[#06c755] text-white")}
+                buttonClassName={classNames("bg-[#06c755] hover:saturate-[0.7] text-white")}
                 priority={true}
                 onClick={lineSigninHanlder}
             >
