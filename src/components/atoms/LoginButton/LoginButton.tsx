@@ -12,17 +12,19 @@ export interface LoginButtonProps
     imgAlt?: string;
     priority?: boolean;
     buttonClassName?: string;
+    imageWrapProps?: Record<string, any>;
 }
 
 function LoginButton(props: LoginButtonProps): React.JSX.Element {
-    const { src, imgAlt, priority, children, buttonClassName, ...rest } = props;
+    const { src, imgAlt, priority, children, buttonClassName, imageWrapProps, ...rest } = props;
+    const { className: imageWrapClass, ...imageWrapRest } = imageWrapProps ?? {};
     return (
         <button
             className={classNames(
                 "relative",
                 "flex items-center justify-center",
                 "h-12",
-                "m-2 p-2",
+                "m-2 px-4 py-2",
                 "rounded",
                 "cursor-pointer",
                 buttonClassName
@@ -30,7 +32,13 @@ function LoginButton(props: LoginButtonProps): React.JSX.Element {
             {...rest}
             style={{ boxShadow: "var(--mui-shadows-1)" }}
         >
-            <div className={classNames("absolute left-0 flex aspect-square h-12 items-center object-contain")}>
+            <div
+                className={classNames(
+                    "absolute left-0 flex aspect-square h-12 items-center object-contain",
+                    imageWrapClass
+                )}
+                {...imageWrapRest}
+            >
                 <Image
                     className={classNames("h-full w-full")}
                     src={src}
