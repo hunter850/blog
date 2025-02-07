@@ -2,3 +2,4 @@ export const apiDomain = process.env.NODE_ENV === "development" ? `http://localh
 export const apiPrefix = `${apiDomain}/api`;
 
 export const line_login_api = `${apiPrefix}/line_login`;
+export const ms_login_api = `${apiPrefix}/ms_login`;

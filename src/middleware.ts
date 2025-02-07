@@ -1,28 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const SUPPORTED_LANGUAGES = ["zh-TW", "en-US"];
-const DEFAULT_LANGUAGE = "zh-TW";
+const locales = ["en-US", "zh-TW"];
+const defaultLocale = "zh-TW";
+
+// Get the preferred locale, similar to the above or using a library
 
 export function middleware(request: NextRequest) {
+    // Check if there is any supported locale in the pathname
     const { pathname } = request.nextUrl;
+    if (pathname === "/ms_login") return;
+    const pathnameHasLocale = locales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
 
-    // 取得路徑的第一個部分，例如 `/zh-TW/about` 會得到 `zh-TW`
-    const segments = pathname.split("/").filter(Boolean);
-    const lang = segments[0]; // 第一個 segment 作為語言
+    if (pathnameHasLocale) return;
 
-    // 若路徑是 `/`，則導向預設語言 `/zh-TW/`
-    if (pathname === "/") {
-        return NextResponse.redirect(new URL(`/${DEFAULT_LANGUAGE}/`, request.url));
-    }
-
-    // 若語言不在支援的列表，則導向 `/zh-TW/...`
-    if (!SUPPORTED_LANGUAGES.includes(lang)) {
-        return NextResponse.redirect(new URL(`/${DEFAULT_LANGUAGE}${pathname}`, request.url));
-    }
-
-    return NextResponse.next();
+    // Redirect if there is no locale
+    request.nextUrl.pathname = `/${defaultLocale}${pathname}`;
+    // e.g. incoming request is /products
+    // The new URL is now /en-US/products
+    return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
-    matcher: ["/((?!_next/static|images).*)"],
+    matcher: [
+        // Skip all internal paths (_next)
+        "/((?!_next|images).*)",
+        // Optional: only run on root (/) URL
+        // '/'
+    ],
 };

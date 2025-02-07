@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 // components
 import SwitchLanguageButton from "@/components/atoms/SwitchLanguageButton";
+import MsLogoutButton from "@/components/atoms/MsLogoutButton";
 // utils
 import loadTranslations from "@/utils/loadTranslations";
 // types
@@ -14,6 +15,7 @@ async function BlogPage(props: BlogProps): Promise<React.JSX.Element> {
             <h1>BlogPage</h1>
             <p>{translations.welcome}</p>
             <SwitchLanguageButton lang={lang}>{translations.language}</SwitchLanguageButton>
+            <MsLogoutButton translations={translations} />
         </Fragment>
     );
 }

@@ -1,5 +1,6 @@
 {
     "language": "繁體中文",
     "welcome": "歡迎來到我的部落格！",
-    "changeLanguage": "切換語言"
+    "changeLanguage": "切換語言",
+    "logout": "登出"
 }

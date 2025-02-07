@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import zhTWTranslations from "@/assets/translations/zh-TW.json";
 
-type Translations = {
+export type Translations = {
     [K in keyof typeof zhTWTranslations]: string;
 };
 

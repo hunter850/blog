@@ -1,5 +1,6 @@
 {
     "language": "English",
     "welcome": "Welcome to my blog!",
-    "changeLanguage": "Change Language"
+    "changeLanguage": "Change Language",
+    "logout": "Logout"
 }
