@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import StyledEngineProvider from "@/providers/TailwindInjectProvider";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "@/styles/theme";
-import CssBaseline from "@mui/material/CssBaseline";
 import "../globals.css";
 
 const roboto = Roboto({
@@ -39,14 +34,7 @@ export default async function RootLayout({
     return (
         <html lang={htmlLang}>
             <body className={`${roboto.variable} antialiased`} id="root">
-                <AppRouterCacheProvider options={{ key: "css" }}>
-                    <StyledEngineProvider>
-                        <ThemeProvider theme={theme}>
-                            <CssBaseline />
-                            {children}
-                        </ThemeProvider>
-                    </StyledEngineProvider>
-                </AppRouterCacheProvider>
+                {children}
             </body>
         </html>
     );

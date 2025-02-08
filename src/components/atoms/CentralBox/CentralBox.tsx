@@ -1,5 +1,3 @@
-// mui
-import Paper from "@mui/material/Paper";
 // utils
 import classNames from "@/utils/classNames";
 // types
@@ -11,18 +9,19 @@ export interface CentralBoxProps {
 
 function CentralBox(props: CentralBoxProps): React.JSX.Element {
     return (
-        <Paper
+        <div
             className={classNames(
                 "px-14 py-9",
                 "mx-auto mt-32",
                 "max-w-[90%] sm:max-w-md",
                 "min-h-48",
                 "text-center",
-                "flex flex-col items-center justify-center"
+                "flex flex-col items-center justify-center",
+                "shadow-md"
             )}
         >
             {props.children}
-        </Paper>
+        </div>
     );
 }
 

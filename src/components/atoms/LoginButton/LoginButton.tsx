@@ -27,10 +27,10 @@ function LoginButton(props: LoginButtonProps): React.JSX.Element {
                 "m-2 px-4 py-2",
                 "rounded",
                 "cursor-pointer",
+                "shadow-md",
                 buttonClassName
             )}
             {...rest}
-            style={{ boxShadow: "var(--mui-shadows-1)" }}
         >
             <div
                 className={classNames(

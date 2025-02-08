@@ -5,7 +5,6 @@ import { Fragment } from "react";
 import LoginButton from "@/components/atoms/LoginButton";
 // utils
 import classNames from "@/utils/classNames";
-import querystring from "querystring";
 import { ms_login_api } from "@/config/api_configs";
 // datas
 import msLogo from "@/assets/images/microsoft_64.png";
