@@ -6,7 +6,7 @@ async function loadTranslations(locale: string | null): Promise<Partial<Translat
         const params = new URLSearchParams();
         params.append("locale", locale ?? "zh-TW");
         const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/translations?${params.toString()}`, {
-            cache: "force-cache",
+            cache: "default",
         });
         if (!response.ok) throw new Error(`Failed to fetch translations: ${response.statusText}`);
         const json = (await response.json()) as TranslationsResponse;

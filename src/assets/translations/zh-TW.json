@@ -2,5 +2,11 @@
     "language": "繁體中文",
     "welcome": "歡迎來到我的部落格！",
     "changeLanguage": "切換語言",
-    "logout": "登出"
+    "logout": "登出",
+    "home": "首頁",
+    "blog": "部落格",
+    "english": "English",
+    "traditionalChinese": "繁體中文",
+    "en-US": "English",
+    "zh-TW": "繁體中文"
 }

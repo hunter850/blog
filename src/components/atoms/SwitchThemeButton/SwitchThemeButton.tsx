@@ -29,7 +29,7 @@ function SwitchThemeButton(): React.JSX.Element {
         <>
             {!mounted && (
                 <Button className="ph-9 w-[60px]">
-                    <span className="visuallyhidden">theme switcher</span>
+                    <span className="sr-only">theme switcher</span>
                 </Button>
             )}
             {mounted && (

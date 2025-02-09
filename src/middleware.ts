@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const LOCALES = ["en-US", "zh-TW"];
+export const LOCALES = ["en-US", "zh-TW"] as const;
 const DEFAULT_LOCALES = "zh-TW";
 
 // Get the preferred locale, similar to the above or using a library
 
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
-    const regex = new RegExp(`^https?://[^/]+/([a-z]{2}-[A-Z]{2})(/|$)`);
+    const regex = new RegExp(`^https?://[^/]+/([^/]+)(/|$)`);
     const match = request.url.match(regex);
     const xLocale = match ? match[1] : "";
     const requestHeaders = new Headers(request.headers);

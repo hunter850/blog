@@ -2,5 +2,11 @@
     "language": "English",
     "welcome": "Welcome to my blog!",
     "changeLanguage": "Change Language",
-    "logout": "Logout"
+    "logout": "Logout",
+    "home": "Home",
+    "blog": "Blog",
+    "english": "English",
+    "traditionalChinese": "繁體中文",
+    "en-US": "English",
+    "zh-TW": "繁體中文"
 }

@@ -1,12 +1,14 @@
 "use client";
 
 import { useContext, createContext } from "react";
+// data
+import { LOCALES } from "@/middleware";
 // types
 import type { Translations } from "@/app/api/translations/route";
 import type { ReactNode } from "react";
 
 const TranslationsContext = createContext<Partial<Translations>>({});
-const LocaleContenxt = createContext<string>("zh-TW");
+const LocaleContenxt = createContext<(typeof LOCALES)[number]>("zh-TW");
 
 export function useTranslations() {
     return useContext(TranslationsContext);
@@ -19,7 +21,7 @@ export function useLocale() {
 export interface TranslationsProviderProps {
     children: ReactNode;
     translations: Partial<Translations>;
-    locale: string;
+    locale: (typeof LOCALES)[number];
 }
 
 function TranslationsProvider(props: TranslationsProviderProps): React.JSX.Element {
