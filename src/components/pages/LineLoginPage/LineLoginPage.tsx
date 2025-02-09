@@ -3,7 +3,7 @@
 import { Fragment, useEffect } from "react";
 import { useRouter } from "next/navigation";
 // contexts
-import { useLocale } from "@/providers/TranslationsProvider";
+import { useLocale } from "next-intl";
 // configs
 import { line_login_api } from "@/config/api_configs";
 
