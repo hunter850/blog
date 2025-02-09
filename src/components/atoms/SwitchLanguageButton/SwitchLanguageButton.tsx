@@ -6,8 +6,7 @@ import Link from "next/link";
 // components
 import { Check } from "lucide-react";
 // contexts
-import { useLocale } from "@/providers/TranslationsProvider";
-// utils
+import { useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 // types
 import type { ReactNode } from "react";

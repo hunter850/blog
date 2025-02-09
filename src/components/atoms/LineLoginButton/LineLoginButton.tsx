@@ -3,7 +3,7 @@
 import { Fragment } from "react";
 import { usePathname } from "next/navigation";
 // contexts
-import { useLocale } from "@/providers/TranslationsProvider";
+import { useLocale } from "next-intl";
 // components
 import LoginButton from "@/components/atoms/LoginButton";
 // utils

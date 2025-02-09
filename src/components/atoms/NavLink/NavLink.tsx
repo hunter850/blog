@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-// contexts
-import { useLocale } from "@/providers/TranslationsProvider";
+// hooks
+import { useLocale } from "next-intl";
 // utils
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react"; // Added import for React

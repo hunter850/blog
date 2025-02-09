@@ -1,22 +1,20 @@
-import { headers } from "next/headers";
 // components
 import MsLogoutButton from "@/components/atoms/MsLogoutButton";
 import SwitchThemeButton from "@/components/atoms/SwitchThemeButton";
 import Header from "@/components/organisms/Header";
 import Footer from "@/components/organisms/Footer";
-// utils
-import loadTranslations from "@/utils/loadTranslations";
+// hooks
+import { useTranslations } from "next-intl";
 
-async function BlogPage(): Promise<React.JSX.Element> {
-    const locale = (await headers()).get("x-locale");
-    const translations = await loadTranslations(locale);
+function BlogPage(): React.JSX.Element {
+    const t = useTranslations();
     return (
         <>
             <div className="flex min-h-screen flex-col">
                 <Header />
                 <main className="container mx-auto mt-16 flex-grow px-4 py-8">
                     <h1>BlogPage</h1>
-                    <p>{translations.welcome}</p>
+                    <p>{t("welcome")}</p>
                     <MsLogoutButton />
                     <SwitchThemeButton />
                 </main>

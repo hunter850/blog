@@ -4,7 +4,7 @@ import { Fragment } from "react";
 // components
 import LoginButton from "@/components/atoms/LoginButton";
 // contexts
-import { useLocale } from "@/providers/TranslationsProvider";
+import { useLocale } from "next-intl";
 // utils
 import { cn } from "@/lib/utils";
 import { ms_login_api } from "@/config/api_configs";
