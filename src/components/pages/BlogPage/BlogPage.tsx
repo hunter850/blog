@@ -1,22 +1,20 @@
-import { Fragment } from "react";
+import { headers } from "next/headers";
 // components
 import SwitchLanguageButton from "@/components/atoms/SwitchLanguageButton";
 import MsLogoutButton from "@/components/atoms/MsLogoutButton";
 import SwitchThemeButton from "@/components/atoms/SwitchThemeButton";
 // utils
 import loadTranslations from "@/utils/loadTranslations";
-// types
-import type { BlogProps } from "@/app/[lang]/blog/page";
 
-async function BlogPage(props: BlogProps): Promise<React.JSX.Element> {
-    const { lang } = await props.params;
-    const translations = await loadTranslations(lang);
+async function BlogPage(): Promise<React.JSX.Element> {
+    const locale = (await headers()).get("x-locale");
+    const translations = await loadTranslations(locale);
     return (
         <div>
             <h1>BlogPage</h1>
             <p>{translations.welcome}</p>
-            <SwitchLanguageButton lang={lang}>{translations.language}</SwitchLanguageButton>
-            <MsLogoutButton translations={translations} />
+            <SwitchLanguageButton>{translations.language}</SwitchLanguageButton>
+            <MsLogoutButton />
             <SwitchThemeButton />
         </div>
     );

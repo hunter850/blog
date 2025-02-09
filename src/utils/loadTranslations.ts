@@ -1,20 +1,19 @@
-import fs from "fs";
-import path from "path";
-import zhTWTranslations from "@/assets/translations/zh-TW.json";
-
-export type Translations = {
-    [K in keyof typeof zhTWTranslations]: string;
-};
+import type { TranslationsResponse, Translations } from "@/app/api/translations/route";
 
 // 載入翻譯 JSON
-async function loadTranslations(lang: string) {
-    const translationsPath = path.resolve("src/assets/translations", `${lang}.json`);
+async function loadTranslations(locale: string | null): Promise<Partial<Translations>> {
     try {
-        const translations = JSON.parse(fs.readFileSync(translationsPath, "utf8")) as Translations;
-        return translations;
+        const params = new URLSearchParams();
+        params.append("locale", locale ?? "zh-TW");
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/translations?${params.toString()}`, {
+            cache: "force-cache",
+        });
+        if (!response.ok) throw new Error(`Failed to fetch translations: ${response.statusText}`);
+        const json = (await response.json()) as TranslationsResponse;
+        return json?.data ?? {};
     } catch (error) {
         console.error("Error loading translations:", error);
-        return {} as Translations; // 如果翻譯文件讀取失敗，回傳空對象
+        return {}; // 返回空物件，避免程式崩潰
     }
 }
 

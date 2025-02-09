@@ -11,7 +11,7 @@ function MsLoginPage(): React.JSX.Element {
         (async () => {
             const params = new URLSearchParams(window.location.search);
             const code = params.get("code");
-            const lang = localStorage.getItem("lang") ?? "zh-TW";
+            const locale = localStorage.getItem("locale") ?? "zh-TW";
             if (code) {
                 const response = await fetch(ms_login_api, {
                     method: "POST",
@@ -23,11 +23,11 @@ function MsLoginPage(): React.JSX.Element {
                 });
                 const result = await response.json();
                 if (response.status <= 200 && response.status < 300 && result?.success === true) {
-                    localStorage.removeItem("lang");
-                    router.push(`${lang}/blog`);
+                    localStorage.removeItem("locale");
+                    router.push(`${locale}/blog`);
                 } else {
                     alert("Failed to login by microsoft. Redirect to login page.");
-                    router.push(`${lang}/login`);
+                    router.push(`${locale}/login`);
                 }
             }
         })();

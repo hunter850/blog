@@ -2,15 +2,14 @@
 
 import { Fragment, useEffect } from "react";
 import { useRouter } from "next/navigation";
+// contexts
+import { useLocale } from "@/providers/TranslationsProvider";
 // configs
 import { line_login_api } from "@/config/api_configs";
 
-export interface LineLoginPageProps {
-    lang: string;
-}
-
-function LineLoginPage(props: LineLoginPageProps): React.JSX.Element {
+function LineLoginPage(): React.JSX.Element {
     const router = useRouter();
+    const locale = useLocale();
     useEffect(() => {
         (async () => {
             const params = new URLSearchParams(window.location.search);
@@ -23,7 +22,7 @@ function LineLoginPage(props: LineLoginPageProps): React.JSX.Element {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ code, state, lang: props.lang }),
+                    body: JSON.stringify({ code, state, lang: locale }),
                 });
                 const result = await response.json();
                 if (response.status <= 200 && response.status < 300 && result?.success === true) {

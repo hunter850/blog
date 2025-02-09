@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import loadTranslations from "@/utils/loadTranslations";
 import ThemeProvider from "@/providers/ThemeProvider";
+import TranslationsProvider from "@/providers/TranslationsProvider";
 import "../globals.css";
 
 const roboto = Roboto({
@@ -28,14 +30,16 @@ export default async function RootLayout({
     params,
 }: Readonly<{
     children: React.ReactNode;
-    params: Promise<{ lang: string }>;
+    params: Promise<{ locale: string }>;
 }>) {
-    const { lang } = await params;
-    const htmlLang = typeof lang === "string" && lang !== "" ? lang : "zh-TW";
+    const { locale } = await params;
+    const translations = await loadTranslations(locale);
     return (
-        <html suppressHydrationWarning lang={htmlLang}>
+        <html suppressHydrationWarning lang={locale ?? ""}>
             <body className={`${roboto.variable} antialiased`} id="root">
-                <ThemeProvider>{children}</ThemeProvider>
+                <TranslationsProvider locale={locale} translations={translations}>
+                    <ThemeProvider>{children}</ThemeProvider>
+                </TranslationsProvider>
             </body>
         </html>
     );

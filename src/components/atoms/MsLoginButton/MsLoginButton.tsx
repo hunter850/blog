@@ -3,19 +3,18 @@
 import { Fragment } from "react";
 // components
 import LoginButton from "@/components/atoms/LoginButton";
+// contexts
+import { useLocale } from "@/providers/TranslationsProvider";
 // utils
 import { cn } from "@/lib/utils";
 import { ms_login_api } from "@/config/api_configs";
 // datas
 import msLogo from "@/assets/images/microsoft_64.png";
 
-export interface LineLoginButtonProps {
-    lang: string;
-}
-
-function MsLoginButton(props: LineLoginButtonProps): React.JSX.Element {
+function MsLoginButton(): React.JSX.Element {
+    const locale = useLocale();
     function lineSigninHanlder() {
-        localStorage.setItem("lang", props.lang);
+        localStorage.setItem("locale", locale);
         window.location.href = ms_login_api;
     }
     return (

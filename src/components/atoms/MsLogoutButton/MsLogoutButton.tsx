@@ -2,20 +2,17 @@
 
 import { Fragment } from "react";
 import { usePathname } from "next/navigation";
+// contexts
+import { useTranslations } from "@/providers/TranslationsProvider";
 // utils
 import { cn } from "@/lib/utils";
-// types
-import type { Translations } from "@/utils/loadTranslations";
 
-export interface MsLogoutButtonProps {
-    translations: Translations;
-}
-
-function MsLogoutButton(props: MsLogoutButtonProps): React.JSX.Element {
+function MsLogoutButton(): React.JSX.Element {
     const pathname = usePathname();
+    const translations = useTranslations();
     function logoutHandler() {
         console.log("pathname: ", pathname);
-        localStorage.removeItem("lang");
+        localStorage.removeItem("locale");
         window.location.href =
             `https://login.microsoftonline.com/common/oauth2/v2.0/logout?post_logout_redirect_uri=` +
             `https://hlkw.me/zh-TW/login`;
@@ -23,7 +20,7 @@ function MsLogoutButton(props: MsLogoutButtonProps): React.JSX.Element {
     return (
         <Fragment>
             <button onClick={logoutHandler} className={cn("cursor-pointer")}>
-                {props.translations.logout}
+                {translations.logout}
             </button>
         </Fragment>
     );

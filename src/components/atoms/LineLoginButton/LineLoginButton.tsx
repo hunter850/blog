@@ -2,6 +2,8 @@
 
 import { Fragment } from "react";
 import { usePathname } from "next/navigation";
+// contexts
+import { useLocale } from "@/providers/TranslationsProvider";
 // components
 import LoginButton from "@/components/atoms/LoginButton";
 // utils
@@ -9,16 +11,13 @@ import { cn } from "@/lib/utils";
 // datas
 import lineLogo from "@/assets/images/square-default.png";
 
-export interface LineLoginButtonProps {
-    lang: string;
-}
-
-function LineLoginButton(props: LineLoginButtonProps): React.JSX.Element {
+function LineLoginButton(): React.JSX.Element {
     const pathname = usePathname();
+    const locale = useLocale();
     function lineSigninHanlder() {
         const redirectUri = process.env.NEXT_PUBLIC_LINE_REDIRECT_URI!;
         const regex = /^(https?:\/\/[^\/]+)\/(line_login)/;
-        const redirectUriWithLang = redirectUri.replace(regex, `$1/${props.lang}/$2`);
+        const redirectUriWithLang = redirectUri.replace(regex, `$1/${locale}/$2`);
         const params = new URLSearchParams();
         params.append("response_type", "code");
         params.append("client_id", process.env.NEXT_PUBLIC_LINE_CLIENT_ID!);

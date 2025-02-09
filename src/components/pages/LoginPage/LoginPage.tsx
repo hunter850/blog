@@ -1,14 +1,11 @@
 import { Fragment } from "react";
 // components
 import LoginPanel from "@/components/molecules/LoginPanel";
-// types
-import type { LoginProps } from "@/app/[lang]/login/page";
 
-async function LoginPage(props: LoginProps): Promise<React.JSX.Element> {
-    const { lang } = await props.params;
+async function LoginPage(): Promise<React.JSX.Element> {
     return (
         <Fragment>
-            <LoginPanel lang={lang} />
+            <LoginPanel />
         </Fragment>
     );
 }

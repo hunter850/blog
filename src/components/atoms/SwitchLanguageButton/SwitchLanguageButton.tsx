@@ -1,22 +1,24 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
+// contexts
+import { useLocale } from "@/providers/TranslationsProvider";
 // utils
 import { cn } from "@/lib/utils";
 // types
 import type { ReactNode } from "react";
 
 export interface SwitchLanguageButtonProps {
-    lang: string;
     children: ReactNode;
 }
 
 function SwitchLanguageButton(props: SwitchLanguageButtonProps): React.JSX.Element {
     const router = useRouter();
     const pathname = usePathname();
+    const locale = useLocale();
     function changeLanguageHandler() {
-        const newLang = props.lang === "zh-TW" ? "en-US" : "zh-TW";
-        const newPath = pathname.replace(new RegExp(`^/${props.lang}`), `/${newLang}`);
+        const newLocale = locale === "zh-TW" ? "en-US" : "zh-TW";
+        const newPath = pathname.replace(new RegExp(`^/${locale}`), `/${newLocale}`);
         router.push(newPath);
     }
     return (
