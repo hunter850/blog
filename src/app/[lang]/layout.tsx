@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import ThemeProvider from "@/providers/ThemeProvider";
 import "../globals.css";
 
 const roboto = Roboto({
@@ -32,9 +33,9 @@ export default async function RootLayout({
     const { lang } = await params;
     const htmlLang = typeof lang === "string" && lang !== "" ? lang : "zh-TW";
     return (
-        <html lang={htmlLang}>
+        <html suppressHydrationWarning lang={htmlLang}>
             <body className={`${roboto.variable} antialiased`} id="root">
-                {children}
+                <ThemeProvider>{children}</ThemeProvider>
             </body>
         </html>
     );

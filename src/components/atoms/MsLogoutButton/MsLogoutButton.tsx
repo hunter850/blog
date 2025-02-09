@@ -3,7 +3,7 @@
 import { Fragment } from "react";
 import { usePathname } from "next/navigation";
 // utils
-import classNames from "@/utils/classNames";
+import { cn } from "@/lib/utils";
 // types
 import type { Translations } from "@/utils/loadTranslations";
 
@@ -22,7 +22,7 @@ function MsLogoutButton(props: MsLogoutButtonProps): React.JSX.Element {
     }
     return (
         <Fragment>
-            <button onClick={logoutHandler} className={classNames("cursor-pointer")}>
+            <button onClick={logoutHandler} className={cn("cursor-pointer")}>
                 {props.translations.logout}
             </button>
         </Fragment>

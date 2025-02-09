@@ -1,11 +1,10 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 // components
 import BlogPage from "@/components/pages/BlogPage";
 
 export interface BlogProps {
     params: Promise<{ lang: string }>;
 }
-
 async function Blog(props: BlogProps): Promise<React.JSX.Element> {
     return (
         <Fragment>

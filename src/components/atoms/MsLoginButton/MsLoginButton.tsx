@@ -4,7 +4,7 @@ import { Fragment } from "react";
 // components
 import LoginButton from "@/components/atoms/LoginButton";
 // utils
-import classNames from "@/utils/classNames";
+import { cn } from "@/lib/utils";
 import { ms_login_api } from "@/config/api_configs";
 // datas
 import msLogo from "@/assets/images/microsoft_64.png";
@@ -23,10 +23,10 @@ function MsLoginButton(props: LineLoginButtonProps): React.JSX.Element {
             <LoginButton
                 src={msLogo}
                 imgAlt="Line Logo"
-                buttonClassName={classNames("bg-trasparent hover:bg-gray-200/50 text-black")}
+                buttonClassName={cn("bg-trasparent hover:bg-gray-200/50 text-black")}
                 priority={true}
                 onClick={lineSigninHanlder}
-                imageWrapProps={{ className: classNames("p-1") }}
+                imageWrapProps={{ className: cn("p-1") }}
             >
                 Sign in with Microsoft
             </LoginButton>

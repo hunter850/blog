@@ -1,6 +1,6 @@
 import Image from "next/image";
 // utils
-import classNames from "@/utils/classNames";
+import { cn } from "@/lib/utils";
 // types
 import type { ReactNode } from "react";
 import type { StaticImageData } from "next/image";
@@ -20,7 +20,7 @@ function LoginButton(props: LoginButtonProps): React.JSX.Element {
     const { className: imageWrapClass, ...imageWrapRest } = imageWrapProps ?? {};
     return (
         <button
-            className={classNames(
+            className={cn(
                 "relative",
                 "flex items-center justify-center",
                 "h-12",
@@ -33,21 +33,18 @@ function LoginButton(props: LoginButtonProps): React.JSX.Element {
             {...rest}
         >
             <div
-                className={classNames(
-                    "absolute left-0 flex aspect-square h-12 items-center object-contain",
-                    imageWrapClass
-                )}
+                className={cn("absolute left-0 flex aspect-square h-12 items-center object-contain", imageWrapClass)}
                 {...imageWrapRest}
             >
                 <Image
-                    className={classNames("h-full w-full")}
+                    className={cn("h-full w-full")}
                     src={src}
                     alt={imgAlt ?? ""}
                     priority={priority === true ? true : false}
                 />
             </div>
-            <div className={classNames("absolute", "h-full", "w-[1px]", "bg-[#f2f2f2]", "left-12 top-0")}></div>
-            <span className={classNames("grow pl-12 text-center text-base")}>{children}</span>
+            <div className={cn("absolute", "h-full", "w-[1px]", "bg-[#f2f2f2]", "left-12 top-0")}></div>
+            <span className={cn("grow pl-12 text-center text-base")}>{children}</span>
         </button>
     );
 }

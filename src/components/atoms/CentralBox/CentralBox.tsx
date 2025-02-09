@@ -1,5 +1,5 @@
 // utils
-import classNames from "@/utils/classNames";
+import { cn } from "@/lib/utils";
 // types
 import type { ReactNode } from "react";
 
@@ -10,7 +10,7 @@ export interface CentralBoxProps {
 function CentralBox(props: CentralBoxProps): React.JSX.Element {
     return (
         <div
-            className={classNames(
+            className={cn(
                 "px-14 py-9",
                 "mx-auto mt-32",
                 "max-w-[90%] sm:max-w-md",

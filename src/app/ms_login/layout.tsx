@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+// providers
+import ThemeProvider from "@/providers/ThemeProvider";
 
 export const metadata: Metadata = {
     title: "HLKW | Blog",
@@ -18,5 +20,11 @@ export default async function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return <>{children}</>;
+    return (
+        <html suppressHydrationWarning>
+            <body id="root">
+                <ThemeProvider>{children}</ThemeProvider>
+            </body>
+        </html>
+    );
 }

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 // components
 import LoginButton from "@/components/atoms/LoginButton";
 // utils
-import classNames from "@/utils/classNames";
+import { cn } from "@/lib/utils";
 // datas
 import lineLogo from "@/assets/images/square-default.png";
 
@@ -40,7 +40,7 @@ function LineLoginButton(props: LineLoginButtonProps): React.JSX.Element {
             <LoginButton
                 src={lineLogo}
                 imgAlt="Line Logo"
-                buttonClassName={classNames("bg-[#06c755] hover:saturate-[0.7] text-white")}
+                buttonClassName={cn("bg-[#06c755] hover:saturate-[0.7] text-white")}
                 priority={true}
                 onClick={lineSigninHanlder}
             >

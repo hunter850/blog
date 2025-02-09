@@ -2,7 +2,7 @@
 
 import { useRouter, usePathname } from "next/navigation";
 // utils
-import classNames from "@/utils/classNames";
+import { cn } from "@/lib/utils";
 // types
 import type { ReactNode } from "react";
 
@@ -20,7 +20,7 @@ function SwitchLanguageButton(props: SwitchLanguageButtonProps): React.JSX.Eleme
         router.push(newPath);
     }
     return (
-        <button onClick={changeLanguageHandler} className={classNames("cursor-pointer")}>
+        <button onClick={changeLanguageHandler} className={cn("cursor-pointer")}>
             {props.children}
         </button>
     );
