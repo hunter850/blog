@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import loadTranslations from "@/utils/loadTranslations";
 import ThemeProvider from "@/providers/ThemeProvider";
 import TranslationsProvider from "@/providers/TranslationsProvider";
+import { LOCALES } from "@/middleware";
 import "../globals.css";
 
 const roboto = Roboto({
@@ -30,7 +31,7 @@ export default async function RootLayout({
     params,
 }: Readonly<{
     children: React.ReactNode;
-    params: Promise<{ locale: string }>;
+    params: Promise<{ locale: (typeof LOCALES)[number] }>;
 }>) {
     const { locale } = await params;
     const translations = await loadTranslations(locale);
