@@ -1,6 +1,5 @@
 // components
 import MsLogoutButton from "@/components/atoms/MsLogoutButton";
-import SwitchThemeButton from "@/components/atoms/SwitchThemeButton";
 import Header from "@/components/organisms/Header";
 import Footer from "@/components/organisms/Footer";
 // hooks
@@ -16,7 +15,6 @@ function BlogPage(): React.JSX.Element {
                     <h1>BlogPage</h1>
                     <p>{t("welcome")}</p>
                     <MsLogoutButton />
-                    <SwitchThemeButton />
                 </main>
                 <Footer />
             </div>
