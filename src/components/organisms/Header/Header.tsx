@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+// import { useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet";
@@ -9,8 +7,6 @@ import NavMenu from "@/components/molecules/NavMenu";
 import LanguageDropdown from "@/components/molecules/LanguageDropdown";
 
 function Header() {
-    const [isOpen, setIsOpen] = useState(false);
-
     return (
         <header className="sticky left-0 right-0 top-0 z-50 border-0 border-b border-solid border-gray-300 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +16,7 @@ function Header() {
                         <NavMenu />
                         <LanguageDropdown />
                     </div>
-                    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                    <Sheet>
                         <SheetTrigger asChild className="sm:hidden">
                             <Button variant="outline" size="icon">
                                 <Menu className="h-6 w-6" />
@@ -33,7 +29,7 @@ function Header() {
                                 <SheetTitle>Menu</SheetTitle>
                             </SheetHeader>
                             <div className="mt-4">
-                                <NavMenu onLinkClick={() => setIsOpen(false)} />
+                                <NavMenu />
                                 <div className="mt-4">
                                     <LanguageDropdown />
                                 </div>
