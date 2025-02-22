@@ -25,7 +25,7 @@ function Header() {
                                 <Menu className="h-6 w-6" />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="w-80 sm:hidden" overlayClassName="sm:hidden">
+                        <SheetContent side="right" className="w-60 sm:hidden" overlayClassName="sm:hidden">
                             <SheetHeader>
                                 <SheetTitle>{t("menu")}</SheetTitle>
                             </SheetHeader>
