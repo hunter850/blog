@@ -9,5 +9,8 @@
     "traditionalChinese": "繁體中文",
     "en-US": "English",
     "zh-TW": "繁體中文",
-    "menu": "Menu"
+    "menu": "Menu",
+    "theme": "Theme",
+    "toggle": "Toggle",
+    "toggleSomething": "Toggle {something}"
 }

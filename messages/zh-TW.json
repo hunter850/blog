@@ -9,5 +9,8 @@
     "traditionalChinese": "繁體中文",
     "en-US": "English",
     "zh-TW": "繁體中文",
-    "menu": "選單"
+    "menu": "選單",
+    "theme": "主題",
+    "toggle": "切換",
+    "toggleSomething": "切換{something}"
 }
