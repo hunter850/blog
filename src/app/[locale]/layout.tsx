@@ -49,7 +49,7 @@ export default async function LocaleLayout({
         <html suppressHydrationWarning lang={locale}>
             <body className={`${roboto.variable} antialiased`} id="root">
                 <ThemeProvider>
-                    <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>;
+                    <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
                 </ThemeProvider>
             </body>
         </html>
