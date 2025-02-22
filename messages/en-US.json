@@ -12,5 +12,8 @@
     "menu": "Menu",
     "theme": "Theme",
     "toggle": "Toggle",
-    "toggleSomething": "Toggle {something}"
+    "toggleSomething": "Toggle {something}",
+    "name": "Kevin",
+    "homeProfession": "Professional Frontend Engineer",
+    "homeDescription": "Dedicated to building modern and useful web applications."
 }
