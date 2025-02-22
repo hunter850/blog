@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet";
 import Logo from "@/components/atoms/Logo";
 import NavMenu from "@/components/molecules/NavMenu";
 import LanguageDropdown from "@/components/molecules/LanguageDropdown";
@@ -30,6 +30,7 @@ function Header() {
                         <SheetContent side="right" className="w-60 sm:hidden" overlayClassName="sm:hidden">
                             <SheetHeader>
                                 <SheetTitle>{t("menu")}</SheetTitle>
+                                <SheetDescription className="sr-only">{t("menu")}</SheetDescription>
                             </SheetHeader>
                             <div className="mt-4">
                                 <NavMenu />

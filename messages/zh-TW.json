@@ -15,5 +15,6 @@
     "toggleSomething": "切換{something}",
     "name": "Kevin",
     "homeProfession": "專業前端工程師",
-    "homeDescription": "致力於打造現代化且實用的網頁應用程式。"
+    "homeDescription": "致力於打造現代化且實用的網頁應用程式。",
+    "menuDescription": "瀏覽選單與設定"
 }

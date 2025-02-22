@@ -15,5 +15,6 @@
     "toggleSomething": "Toggle {something}",
     "name": "Kevin",
     "homeProfession": "Professional Frontend Engineer",
-    "homeDescription": "Dedicated to building modern and useful web applications."
+    "homeDescription": "Dedicated to building modern and useful web applications.",
+    "menuDescription": "Access navigation and settings"
 }
