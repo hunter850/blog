@@ -21,25 +21,28 @@ function Header() {
                         <LanguageDropdown />
                         <ThemeSwitcher />
                     </div>
-                    <Sheet>
-                        <SheetTrigger asChild className="sm:hidden">
-                            <Button variant="outline" size="icon">
-                                <Menu className="h-6 w-6" />
-                            </Button>
-                        </SheetTrigger>
-                        <SheetContent side="right" className="w-60 sm:hidden" overlayClassName="sm:hidden">
-                            <SheetHeader>
-                                <SheetTitle>{t("menu")}</SheetTitle>
-                                <SheetDescription className="sr-only">{t("menu")}</SheetDescription>
-                            </SheetHeader>
-                            <div className="mt-4">
-                                <NavMenu />
+                    <div className="flex items-center space-x-2 sm:hidden">
+                        <ThemeSwitcher />
+                        <Sheet>
+                            <SheetTrigger asChild className="sm:hidden">
+                                <Button variant="outline" size="icon">
+                                    <Menu className="h-6 w-6" />
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent side="right" className="w-60 sm:hidden" overlayClassName="sm:hidden">
+                                <SheetHeader>
+                                    <SheetTitle>{t("menu")}</SheetTitle>
+                                    <SheetDescription className="sr-only">{t("menu")}</SheetDescription>
+                                </SheetHeader>
                                 <div className="mt-4">
-                                    <LanguageDropdown />
+                                    <NavMenu />
+                                    <div className="mt-4">
+                                        <LanguageDropdown />
+                                    </div>
                                 </div>
-                            </div>
-                        </SheetContent>
-                    </Sheet>
+                            </SheetContent>
+                        </Sheet>
+                    </div>
                 </div>
             </div>
         </header>
