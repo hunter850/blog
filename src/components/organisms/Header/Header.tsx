@@ -29,7 +29,12 @@ function Header() {
                                     <Menu className="h-6 w-6" />
                                 </Button>
                             </SheetTrigger>
-                            <SheetContent side="right" className="w-60 sm:hidden" overlayClassName="sm:hidden">
+                            <SheetContent
+                                side="right"
+                                className="w-60 sm:hidden"
+                                overlayClassName="sm:hidden"
+                                closeButtonClassName="focus:ring-0 focus:ring-ring focus:ring-offset-0"
+                            >
                                 <SheetHeader>
                                     <SheetTitle>{t("menu")}</SheetTitle>
                                     <SheetDescription className="sr-only">{t("menu")}</SheetDescription>
