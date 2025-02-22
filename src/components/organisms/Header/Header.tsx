@@ -1,12 +1,15 @@
 // import { useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetDescription } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "@/components/atoms/Logo";
 import NavMenu from "@/components/molecules/NavMenu";
 import LanguageDropdown from "@/components/molecules/LanguageDropdown";
+// hooks
+import { useTranslations } from "next-intl";
 
 function Header() {
+    const t = useTranslations();
     return (
         <header className="sticky left-0 right-0 top-0 z-50 border-0 border-b border-solid border-gray-300 bg-background">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,13 +23,11 @@ function Header() {
                         <SheetTrigger asChild className="sm:hidden">
                             <Button variant="outline" size="icon">
                                 <Menu className="h-6 w-6" />
-                                <span className="sr-only">Toggle menu</span>
                             </Button>
                         </SheetTrigger>
                         <SheetContent side="right" className="w-80 sm:hidden" overlayClassName="sm:hidden">
                             <SheetHeader>
-                                <SheetDescription className="sr-only">Menu</SheetDescription>
-                                <SheetTitle>Menu</SheetTitle>
+                                <SheetTitle>{t("menu")}</SheetTitle>
                             </SheetHeader>
                             <div className="mt-4">
                                 <NavMenu />
