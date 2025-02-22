@@ -1,15 +1,17 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useMemo } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+// hooks
+import useMounted from "@/hooks/useMounted";
 import { useTranslations } from "next-intl";
 
 function ThemeSwitcher(): React.JSX.Element {
     const t = useTranslations();
     const { systemTheme, theme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState<boolean>(false);
+    const mounted = useMounted();
 
     const currentTheme = useMemo(() => {
         return theme === "system" ? systemTheme : theme;
@@ -22,10 +24,6 @@ function ThemeSwitcher(): React.JSX.Element {
             setTheme("dark");
         }
     }
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     if (!mounted) {
         return (
