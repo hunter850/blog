@@ -20,13 +20,13 @@ function NavLink({ href, children, onClick }: NavLinkProps) {
     return (
         <Link
             href={`/${locale}${href === "/" ? "" : href}`}
-            // className="hover:text-primary text-sm font-medium transition-colors"
             className={cn(
-                "hover:text-primary relative px-2 py-1 text-sm font-medium transition-colors sm:px-0 sm:py-0",
+                "relative px-4 py-2 text-sm font-medium transition-all duration-300",
+                "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full",
                 [
                     pathname === `/${locale}${href === "/" ? "" : href}`
-                        ? "text-primary after:bg-primary font-bold after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full"
-                        : "text-muted-foreground hover:after:bg-primary hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:h-0.5 hover:after:w-full hover:after:opacity-50",
+                        ? "text-primary after:w-full"
+                        : "text-muted-foreground hover:text-primary",
                 ]
             )}
             onClick={onClick}
