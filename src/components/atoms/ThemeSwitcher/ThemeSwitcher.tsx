@@ -45,4 +45,4 @@ function ThemeSwitcher(): React.JSX.Element {
     );
 }
 
-export default ThemeSwitcher; 
+export default ThemeSwitcher;
