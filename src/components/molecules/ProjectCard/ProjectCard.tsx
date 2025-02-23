@@ -20,7 +20,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 
     return (
         <Card className="group/card flex flex-col overflow-hidden border bg-card shadow transition-all hover:shadow-lg dark:bg-white/[0.04] dark:hover:bg-white/[0.08]">
-            <a href={project.link} target="_blank" rel="noreferrer">
+            <a href={project.link} target="_blank" rel="noreferrer" className="flex h-full flex-col">
                 <div className="relative aspect-video w-full overflow-hidden bg-muted">
                     <Image
                         src={project.image}
