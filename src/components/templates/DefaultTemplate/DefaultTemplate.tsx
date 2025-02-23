@@ -13,8 +13,8 @@ function DefaultTemplate(props: DefaultTemplateProps): React.JSX.Element {
         <>
             <div className="flex min-h-screen flex-col">
                 <Header />
-                <main className="overflow-hidden">
-                    <div className="container mx-auto mt-16 flex-grow px-4 py-8">{props.children}</div>
+                <main className="flex-grow overflow-hidden">
+                    <div className="container mx-auto mt-16 px-4 py-8">{props.children}</div>
                 </main>
                 <Footer />
             </div>
