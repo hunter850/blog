@@ -1,12 +1,8 @@
-import { Fragment } from "react";
 // components
+import AboutPage from "@/components/pages/AboutPage";
 
 async function About(): Promise<React.JSX.Element> {
-    return (
-        <Fragment>
-            <h1>About</h1>
-        </Fragment>
-    );
+    return <AboutPage />;
 }
 
 export default About;

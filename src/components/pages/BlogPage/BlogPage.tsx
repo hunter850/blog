@@ -1,25 +1,17 @@
 // components
 import MsLogoutButton from "@/components/atoms/MsLogoutButton";
-import Header from "@/components/organisms/Header";
-import Footer from "@/components/organisms/Footer";
+import DefaultTemplate from "@/components/templates/DefaultTemplate";
 // hooks
 import { useTranslations } from "next-intl";
 
 function BlogPage(): React.JSX.Element {
     const t = useTranslations();
     return (
-        <>
-            <div className="flex min-h-screen flex-col">
-                <Header />
-                <main className="container mx-auto mt-16 flex-grow px-4 py-8">
-                    <h1>BlogPage</h1>
-                    <p>{t("welcome")}</p>
-                    <MsLogoutButton />
-                </main>
-                <Footer />
-            </div>
-            <div></div>
-        </>
+        <DefaultTemplate>
+            <h1>BlogPage</h1>
+            <p>{t("welcome")}</p>
+            <MsLogoutButton />
+        </DefaultTemplate>
     );
 }
 
