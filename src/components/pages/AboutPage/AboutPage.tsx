@@ -15,7 +15,7 @@ function AboutPage(): React.JSX.Element {
 
     return (
         <DefaultTemplate>
-            <div className="min-h-screen px-4">
+            <div className="min-h-screen">
                 <div className="mx-auto mb-12 max-w-3xl text-center">
                     <Avatar src={personalInfo.avatar} alt="avatar" />
                     <GradientTitle>{t(personalInfo.name)}</GradientTitle>
