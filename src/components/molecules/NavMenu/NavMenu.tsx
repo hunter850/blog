@@ -6,7 +6,7 @@ import { navLinks } from "@/config/nav_configs";
 function NavMenu() {
     const t = useTranslations();
     return (
-        <nav className="flex flex-col space-y-2 sm:flex-row sm:items-center sm:space-x-2 sm:space-y-0 sm:rounded-full sm:border sm:border-border sm:px-2 sm:py-1">
+        <nav className="flex flex-col space-y-2 md:flex-row md:items-center md:space-x-2 md:space-y-0 md:rounded-full md:border md:border-border md:px-2 md:py-1">
             {navLinks.map((link) => (
                 <NavLink key={link.href} href={link.href}>
                     {t(link.label)}

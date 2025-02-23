@@ -16,23 +16,23 @@ function Header() {
             <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                     <Logo />
-                    <div className="hidden items-center space-x-4 sm:flex">
+                    <div className="hidden items-center space-x-4 md:flex">
                         <NavMenu />
                         <LanguageDropdown />
                         <ThemeSwitcher />
                     </div>
-                    <div className="flex items-center space-x-2 sm:hidden">
+                    <div className="flex items-center space-x-2 md:hidden">
                         <ThemeSwitcher />
                         <Sheet>
-                            <SheetTrigger asChild className="transition-none sm:hidden">
+                            <SheetTrigger asChild className="transition-none md:hidden">
                                 <Button variant="outline" size="icon">
                                     <Menu className="h-6 w-6" />
                                 </Button>
                             </SheetTrigger>
                             <SheetContent
                                 side="right"
-                                className="w-60 sm:hidden"
-                                overlayClassName="sm:hidden"
+                                className="w-60 md:hidden"
+                                overlayClassName="md:hidden"
                                 closeButtonClassName="focus:ring-0 focus:ring-ring focus:ring-offset-0"
                             >
                                 <SheetHeader>
