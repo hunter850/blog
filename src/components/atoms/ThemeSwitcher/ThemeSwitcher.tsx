@@ -36,9 +36,9 @@ function ThemeSwitcher(): React.JSX.Element {
     return (
         <Button variant="ghost" size="icon" className="h-9 w-9" onClick={changeThemeHandler}>
             {currentTheme === "dark" ? (
-                <Sun className="h-[1.2rem] w-[1.2rem] text-yellow-500 transition-colors hover:text-yellow-600" />
+                <Sun className="h-[1.2rem] w-[1.2rem] text-yellow-500 [@media(hover:hover)]:hover:text-yellow-600" />
             ) : (
-                <Moon className="h-[1.2rem] w-[1.2rem] text-slate-700 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100" />
+                <Moon className="h-[1.2rem] w-[1.2rem] text-slate-700 dark:text-slate-400 [@media(hover:hover)]:hover:text-slate-900 dark:[@media(hover:hover)]:hover:text-slate-100" />
             )}
             <span className="sr-only">{t("toggleSomething", { something: t("theme") })}</span>
         </Button>
