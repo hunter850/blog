@@ -17,5 +17,135 @@
     "name": "Kevin",
     "homeProfession": "專業前端工程師",
     "homeDescription": "致力於打造現代化且實用的網頁應用程式。",
-    "menuDescription": "瀏覽選單與設定"
+    "menuDescription": "瀏覽選單與設定",
+    "aboutPage": {
+        "name": "羅貫文",
+        "basicInfo": "基本資訊",
+        "education": {
+            "title": "教育背景",
+            "ntnu": "國立臺灣師範大學(2014.9~2018.6)",
+            "iii": "資策會前端工程師就業養成班(2022.03~2022.08)"
+        },
+        "basicInfoProjects": {
+            "title": "專案作品",
+            "experience": "專案經驗",
+            "budget": "預算填寫系統",
+            "eeSystem": "EE工程師挑料系統",
+            "factory": "工廠排程系統",
+            "inventory": "資產盤點App",
+            "coffee": "咖啡電商網站",
+            "overwatch": "OverWatch官網切版練習",
+            "asus": "ASUS官網切版練習"
+        },
+        "experience": {
+            "title": "經歷",
+            "university": {
+                "time": "2014年9月",
+                "title": "大學時期",
+                "content": "大學就學 4 年間參加網球社，擔任 2 年教學長，指導 15人以上的新手從零基礎到參加校際盃，並獲得校際盃冠軍。\n在氣象組與同學合作持續半年每週製作每日氣溫、降雨預報共24則，準確度相當於氣象局，獲教授肯定。"
+            },
+            "military": {
+                "time": "2019年1月",
+                "title": "志願役生涯",
+                "content": "簽志願役，加入儀隊工作 2 年多，主要負責紀錄、整理連隊100多人的訓練及體能狀況，\n並協助每年雙十、元旦的後勤支援及國家級元首到訪時的總統府前場地佈置。"
+            },
+            "career": {
+                "time": "2021年9月",
+                "title": "轉職準備",
+                "content": "開始嘗試以 C 入門，掌握基礎變數宣告、迴圈、位址...等，\n又以 python 作為練習 leetcode 的工具，在接觸到前端後，發現我對這種「所寫即所見」的模式相當有興趣，因此決心成為前端工程師。"
+            },
+            "training": {
+                "time": "2022年3月",
+                "title": "資策會培訓",
+                "content": "參加資策會前端工程師養成班，結訓前與 8 人小組合作，以 React、Node 及 MySQL 開發咖啡店商網站，\n並於課餘時間自學 Vue options / composition API。"
+            },
+            "wiwynn": {
+                "time": "2022年10月",
+                "title": "緯穎科技",
+                "content": "在緯穎科技服務股份有限公司擔任前端工程師，期間，負責多個關鍵專案的開發與重構工作。\n成功將舊專案導入TypeScript與Redux-Toolkit，並升級Webpack版本，顯著提升了團隊開發效率與程式碼品質。\n針對內部系統，運用AG-Grid與Socket重構了預算填寫系統，並利用Chart.js實現了資料視覺化與多人線上共編功能。\n此外，亦開發了多個React與React Native應用程式，包括工廠排程系統、採購自動下單系統及供應商模具盤點App，擁有網頁、手機、電腦桌面應用程式，三種平台的開發經驗。"
+            }
+        },
+        "skills": {
+            "title": "技能",
+            "htmlCssJs": {
+                "title": "HTML/CSS/JavaScript",
+                "items": [
+                    "熟練使用 ES6 語法",
+                    "能以 HTML、CSS、JavsScript 實作 RWD 響應式網頁"
+                ]
+            },
+            "vue": {
+                "title": "Vue.js",
+                "items": [
+                    "熟練使用 options API及 composition API",
+                    "能以 pinia 管理全域變數"
+                ]
+            },
+            "react": {
+                "title": "React",
+                "items": [
+                    "有以 function hooks 團隊協作開發電商網站及內部管理系統經驗",
+                    "能以 redux 或 zustand 管理全域變數",
+                    "React Native 開發經驗"
+                ]
+            },
+            "git": {
+                "title": "Git/Github",
+                "items": [
+                    "使用 Git 進行版本控制",
+                    "使用 Github 進行團隊協作",
+                    "了解 Git flow"
+                ]
+            },
+            "backend": {
+                "title": "Backend",
+                "items": [
+                    "能以 mariadb、PostgreSQL 建立資料表並做正規化",
+                    "能以 Node 搭配 Express 撰寫 API 替前端與資料庫對接"
+                ]
+            },
+            "uiLibs": {
+                "title": "UI Libraries",
+                "items": [
+                    "熟悉 MUI 元件庫",
+                    "能以 styled-components 或 emotion 複寫 MUI 樣式",
+                    "能以 Tailwind 快速套用 CSS 樣式"
+                ]
+            }
+        },
+        "contactDetails": "聯絡方式",
+        "projects": {
+            "title": "專案作品",
+            "items": {
+                "asus": {
+                    "title": "ASUS官網切版練習",
+                    "content": "以 Vue、php 搭配 MySQL 建立資料表及後臺網站。"
+                },
+                "scrollAnimation": {
+                    "title": "捲動進場動畫",
+                    "content": "偵測卷軸捲動判斷動畫進場，參考 aos 的 data sets 用法，並嘗試練習 proxy。"
+                },
+                "asusLayout": {
+                    "title": "ASUS官網切版練習",
+                    "content": "以 HTML 及 CSS，練習 flex 等排版技巧。"
+                },
+                "coffee": {
+                    "title": "0+b咖啡電商網站",
+                    "content": "8人合作以 React 撰寫電商網站，負責購物車及共用元件的開發，並以 Express 自己開 api 與後端對接。"
+                },
+                "resume": {
+                    "title": "個人簡歷頁(舊版)",
+                    "content": "以 React 搭配 SCSS ，製作個人簡歷網站。"
+                },
+                "overwatch": {
+                    "title": "鬥陣特攻官網切版練習",
+                    "content": "以 HTML、CSS 及 JavaScript，切出具有 RWD 且有互動效果的網頁。"
+                },
+                "holoDashboard": {
+                    "title": "Holo Dashboard",
+                    "content": "以 Nextjs 搭配 Tailwind 開發，並以 Express 搭配 Cheerio 爬取 Youtube 及 Hololive 官網資料，將圖片存於aws S3。"
+                }
+            }
+        }
+    }
 }
