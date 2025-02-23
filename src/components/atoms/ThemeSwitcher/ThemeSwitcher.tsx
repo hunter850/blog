@@ -27,14 +27,23 @@ function ThemeSwitcher(): React.JSX.Element {
 
     if (!mounted) {
         return (
-            <Button variant="ghost" size="icon" className="h-9 w-9">
+            <Button
+                variant="ghost"
+                size="icon"
+                className="h-9 w-9 hover:bg-transparent hover:[@media(hover:hover)]:bg-accent"
+            >
                 <span className="sr-only">{t("toggleSomething", { something: t("theme") })}</span>
             </Button>
         );
     }
 
     return (
-        <Button variant="ghost" size="icon" className="h-9 w-9" onClick={changeThemeHandler}>
+        <Button
+            variant="ghost"
+            size="icon"
+            className="h-9 w-9 hover:bg-transparent hover:[@media(hover:hover)]:bg-accent"
+            onClick={changeThemeHandler}
+        >
             {currentTheme === "dark" ? (
                 <Sun className="h-[1.2rem] w-[1.2rem] text-yellow-500 [@media(hover:hover)]:hover:text-yellow-600" />
             ) : (
