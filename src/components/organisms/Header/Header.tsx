@@ -24,7 +24,7 @@ function Header() {
                     <div className="flex items-center space-x-2 sm:hidden">
                         <ThemeSwitcher />
                         <Sheet>
-                            <SheetTrigger asChild className="sm:hidden">
+                            <SheetTrigger asChild className="transition-none sm:hidden">
                                 <Button variant="outline" size="icon">
                                     <Menu className="h-6 w-6" />
                                 </Button>
