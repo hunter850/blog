@@ -1,6 +1,7 @@
 // components
 import Header from "@/components/organisms/Header";
 import Footer from "@/components/organisms/Footer";
+import ScrollToTopButton from "@/components/atoms/ScrollToTopButton";
 // types
 import type { ReactNode } from "react";
 
@@ -17,6 +18,7 @@ function DefaultTemplate(props: DefaultTemplateProps): React.JSX.Element {
                     <div className="container mx-auto mt-16 px-4 py-8">{props.children}</div>
                 </main>
                 <Footer />
+                <ScrollToTopButton />
             </div>
         </>
     );
