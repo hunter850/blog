@@ -144,6 +144,10 @@
                 "holoDashboard": {
                     "title": "Holo Dashboard",
                     "content": "以 Nextjs 搭配 Tailwind 開發，並以 Express 搭配 Cheerio 爬取 Youtube 及 Hololive 官網資料，將圖片存於aws S3。"
+                },
+                "newResume": {
+                    "title": "個人簡歷頁",
+                    "content": "以 Nextjs 搭配 Tailwind CC 翻新簡歷及整理作品集，並以 next-intl 實現多國語言。"
                 }
             }
         }

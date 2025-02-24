@@ -144,6 +144,10 @@
                 "holoDashboard": {
                     "title": "Holo Dashboard",
                     "content": "Developed with Nextjs and Tailwind, using Express with Cheerio to scrape Youtube and Hololive website data, storing images on AWS S3."
+                },
+                "newResume": {
+                    "title": "Personal Resume",
+                    "content": "Refreshed the resume and portfolio using Nextjs and Tailwind CC, and implemented i18n support with next-intl."
                 }
             }
         }

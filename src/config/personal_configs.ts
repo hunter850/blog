@@ -76,6 +76,15 @@ export const personalInfo = {
                 content: "projects.items.holoDashboard.content",
                 tags: ["Nextjs", "Tailwind CSS", "Express", "Cheerio"],
             },
+            {
+                id: 8,
+                image: "/images/open_graph.jpg",
+                alt: "Kevin | blog",
+                link: "https://hlkw.me/zh-TW",
+                title: "projects.items.newResume.title",
+                content: "projects.items.newResume.content",
+                tags: ["Nextjs", "Tailwind CSS", "shadcn", "next-intl"],
+            },
         ],
     },
     skills: [
