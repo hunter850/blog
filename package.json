@@ -3,10 +3,11 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev --turbopack",
-        "build": "next build",
+        "dev": "yarn parse-blog-categories && next dev --turbopack",
+        "build": "yarn parse-blog-categories && next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "parse-blog-categories": "node src/lib/parseBlogCategories.mjs"
     },
     "dependencies": {
         "@mdx-js/loader": "^3.1.0",
