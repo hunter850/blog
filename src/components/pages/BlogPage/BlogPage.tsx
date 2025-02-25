@@ -1,16 +1,30 @@
 // components
+import Link from "next/link";
 import MsLogoutButton from "@/components/atoms/MsLogoutButton";
 import DefaultTemplate from "@/components/templates/DefaultTemplate";
-// hooks
-import { useTranslations } from "next-intl";
+// utils
+import getAllPosts from "@/utils/getAllPosts";
+import getPostsByCategory from "@/utils/getPostsByCategory";
+// types
+import type { BlogProps } from "@/app/[locale]/(noauth)/blog/[category]/page";
 
-function BlogPage(): React.JSX.Element {
-    const t = useTranslations();
+// export type BlogPageProps = BlogProps | {};
+
+async function BlogPage(props: Partial<BlogProps>): Promise<React.JSX.Element> {
+    const category = props?.params ? (await props.params).category : null;
+    const posts = category === null || category === "all" ? await getAllPosts() : await getPostsByCategory(category);
     return (
         <DefaultTemplate>
-            <h1>BlogPage</h1>
-            <p>{t("welcome")}</p>
-            <MsLogoutButton />
+            {posts.map((post) => {
+                return (
+                    <Link key={post.slug} href={`/blog/posts/${post.slug}`}>
+                        <div>
+                            <h1>{post.frontmatter.title}</h1>
+                            <p>{post.frontmatter.description}</p>
+                        </div>
+                    </Link>
+                );
+            })}
         </DefaultTemplate>
     );
 }

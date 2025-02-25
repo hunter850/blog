@@ -45,6 +45,18 @@ body.hide_scrollbar {
     right: 0px;
 }
 
+html code[data-theme*=" "],
+html code[data-theme*=" "] span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+}
+
+html.dark code[data-theme*=" "],
+html.dark code[data-theme*=" "] span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+}
+
 @layer base {
     :root {
         --background: 0 0% 100%;
@@ -115,10 +127,11 @@ body.hide_scrollbar {
 
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
 }
