@@ -1,18 +1,31 @@
 import BlogPage from "@/components/pages/BlogPage";
 // utils
 import getAllCategories from "@/utils/getAllCateGories";
+// i18n
+import { LOCALES } from "@/i18n/routing";
 
 export interface BlogProps {
-    params: Promise<{ category: string }>;
+    params: Promise<{ locale: string; category: string }>;
 }
 
 export default async function Blog(props: BlogProps) {
-    return <BlogPage {...props} />;
+    const params = await props.params;
+    return <BlogPage category={params.category} />;
 }
 
 export async function generateStaticParams() {
     const categories = await getAllCategories();
-    return [{ category: "all" }, ...categories.map((category) => ({ category }))];
-}
 
-export const dynamicParams = false;
+    // 為每個 locale 和 category 組合生成靜態路徑
+    const paths = [];
+    for (const locale of LOCALES) {
+        for (const category of ["all", ...categories]) {
+            paths.push({
+                locale,
+                category,
+            });
+        }
+    }
+
+    return paths;
+}

@@ -1,17 +1,16 @@
 // components
 import Link from "next/link";
-import MsLogoutButton from "@/components/atoms/MsLogoutButton";
 import DefaultTemplate from "@/components/templates/DefaultTemplate";
 // utils
 import getAllPosts from "@/utils/getAllPosts";
 import getPostsByCategory from "@/utils/getPostsByCategory";
-// types
-import type { BlogProps } from "@/app/[locale]/(noauth)/blog/[category]/page";
 
-// export type BlogPageProps = BlogProps | {};
+export interface BlogPageProps {
+    category?: string;
+}
 
-async function BlogPage(props: Partial<BlogProps>): Promise<React.JSX.Element> {
-    const category = props?.params ? (await props.params).category : null;
+async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
+    const category = props?.category ?? null;
     const posts = category === null || category === "all" ? await getAllPosts() : await getPostsByCategory(category);
     return (
         <DefaultTemplate>
