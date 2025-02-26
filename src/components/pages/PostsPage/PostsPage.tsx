@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import DefaultTemplate from "@/components/templates/DefaultTemplate";
+import NarrowContentTemplate from "@/components/templates/NarrowContentTemplate";
 import { compileMDX, MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import themeLight from "shiki/dist/themes/one-light.mjs";
@@ -43,7 +43,7 @@ async function PostsPage(props: PostsPageProps): Promise<React.JSX.Element> {
         // });
         // console.log("frontmatter: ", frontmatter);
         return (
-            <DefaultTemplate>
+            <NarrowContentTemplate>
                 <div className="mx-auto max-w-6xl">
                     <MDXRemote
                         source={fileContent}
@@ -85,7 +85,7 @@ async function PostsPage(props: PostsPageProps): Promise<React.JSX.Element> {
                         }}
                     />
                 </div>
-            </DefaultTemplate>
+            </NarrowContentTemplate>
         );
     } catch {
         notFound();

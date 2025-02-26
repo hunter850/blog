@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 // components
 import Link from "next/link";
-import DefaultTemplate from "@/components/templates/DefaultTemplate";
+import NarrowContentTemplate from "@/components/templates/NarrowContentTemplate";
 // utils
 import getAllPosts from "@/utils/getAllPosts";
 import getPostsByCategory from "@/utils/getPostsByCategory";
@@ -19,7 +19,7 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
     }
     const posts = category === null || category === "all" ? await getAllPosts() : await getPostsByCategory(category);
     return (
-        <DefaultTemplate>
+        <NarrowContentTemplate>
             {posts.map((post) => {
                 return (
                     <Link key={post.slug} href={`/blog/posts/${post.slug}`}>
@@ -30,7 +30,7 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
                     </Link>
                 );
             })}
-        </DefaultTemplate>
+        </NarrowContentTemplate>
     );
 }
 
