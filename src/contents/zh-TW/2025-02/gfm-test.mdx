@@ -20,6 +20,8 @@ __粗體文字__
 *斜體文字*  
 _斜體文字_
 
+普通文字
+
 ~~刪除線文字~~
 
 [點擊這裡](https://hlkw.me/zh-TW)
@@ -27,9 +29,12 @@ _斜體文字_
 ![測試圖片](/images/ow_slicing_practice.png)
 
 > 這是一段引用文字
-> 這是一段引用文字
 >> 這是一段引用文字
 >>> 這是一段引用文字
+
+> 這是一段引用文字
+>>> 這是一段引用文字
+>> 這是一段引用文字
 
 - 項目一
 - 項目二
@@ -53,8 +58,18 @@ _斜體文字_
 這是一段 `行內程式碼`
 
 ```js
-const hello = "Hello, World!";
-console.log(hello);
+import { MetadataRoute } from 'next';
+
+export default function robots(): MetadataRoute.Robots {
+    return {
+        rules: {
+            userAgent: '*', // 針對所有搜索引擎
+            allow: '/', // 允許訪問所有頁面
+            disallow: '/private/', // 禁止訪問私有頁面
+        },
+        sitemap: 'https://www.garylin.dev/sitemap.xml', // 指向網站地圖的 URL
+    };
+}
 ```
 
 | 標題一 | 標題二 |
