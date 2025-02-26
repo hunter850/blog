@@ -11,8 +11,9 @@ export interface Frontmatter {
     category: string;
     tags: string[];
     description: string;
-    image?: string;
     language: string;
+    draft?: boolean;
+    image?: string;
 }
 
 export interface Post {
