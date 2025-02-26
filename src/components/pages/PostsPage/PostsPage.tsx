@@ -8,6 +8,7 @@ import { createHighlighter } from "shiki/bundle/web";
 import rehypePrettyCode from "rehype-pretty-code";
 import * as fs from "fs";
 import * as path from "path";
+import Image from "next/image";
 // components
 import CodeBlockCopyButton from "@/components/atoms/CodeBlockCopyButton";
 import { Badge } from "@/components/ui/badge";
@@ -46,7 +47,17 @@ const components: MDXRemoteProps["components"] = {
         />
     ),
     img: (props) => (
-        <img {...props} className="my-4 h-auto max-w-full rounded-lg" alt={props.alt || ""} loading="lazy" />
+        <Image
+            src={props.src || ""}
+            alt={props.alt || ""}
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="my-4 h-auto w-full max-w-full rounded-lg"
+            style={{ width: "100%", height: "auto" }}
+            loading="lazy"
+            quality={80}
+        />
     ),
     blockquote: (props) => (
         <blockquote
