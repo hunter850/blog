@@ -39,8 +39,10 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
     // 取得文章並按日期排序（最新的在最上面）
     const posts = category === null || category === "all" ? await getAllPosts() : await getPostsByCategory(category);
 
-    // 按語言過濾文章
-    const postsByLanguage = posts.filter((post) => post.frontmatter.language === props.locale);
+    // 按語言過濾文章 如果語言是 all 則不過濾
+    const postsByLanguage = posts.filter(
+        (post) => post.frontmatter.language === "all" || post.frontmatter.language === props.locale
+    );
 
     // 過濾草稿文章
     const postsByLanguageAndDraft = postsByLanguage.filter((post) => !post.frontmatter.draft);
