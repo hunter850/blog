@@ -156,5 +156,9 @@
         "title": "找不到頁面",
         "description": "您所尋找的頁面不存在或已被移動。",
         "backHome": "返回首頁"
+    },
+    "blogPage": {
+        "categories": "文章分類",
+        "noArticles": "暫無文章"
     }
 }
