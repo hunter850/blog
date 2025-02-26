@@ -83,7 +83,7 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
                         href={`/blog/posts/${post.slug}`}
                         className="block no-underline"
                     >
-                        <Card className="overflow-hidden border border-slate-200 bg-white transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-cyan-700 dark:hover:shadow-[0_0_15px_rgba(8,145,178,0.15)]">
+                        <Card className="overflow-hidden border border-slate-200 bg-white shadow-[1px_2px_6px_0px_rgba(0,_0,_0,_0.1)] transition-shadow hover:shadow-[2px_4px_8px_2px_rgba(0,_0,_0,_0.1)] dark:border-slate-700 dark:bg-slate-800 dark:hover:border-cyan-700 dark:hover:shadow-[0_0_15px_rgba(8,145,178,0.15)]">
                             <CardHeader className="pb-2">
                                 <CardTitle className="text-xl font-bold text-slate-800 dark:text-slate-100">
                                     {post.frontmatter.title}
