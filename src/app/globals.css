@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
     box-sizing: border-box;
     background: none repeat scroll 0 0 transparent;
