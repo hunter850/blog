@@ -1,4 +1,4 @@
-import { Roboto } from "next/font/google";
+import { Roboto, Roboto_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -17,6 +17,12 @@ const roboto = Roboto({
     variable: "--font-roboto",
 });
 
+const robotoMono = Roboto_Mono({
+    weight: ["300", "400", "500", "700"],
+    subsets: ["latin"],
+    display: "swap",
+    variable: "--font-roboto-mono",
+});
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_DOMAIN!),
     title: "Kevin | blog",
