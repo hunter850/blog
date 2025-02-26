@@ -53,7 +53,11 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
                                 variant={
                                     category === cat || (category === null && cat === "all") ? "default" : "outline"
                                 }
-                                className="cursor-pointer transition-colors hover:bg-slate-200 dark:hover:bg-slate-700"
+                                className={`cursor-pointer transition-colors ${
+                                    category === cat || (category === null && cat === "all")
+                                        ? "bg-slate-700 hover:bg-slate-800 dark:bg-cyan-700 dark:hover:bg-cyan-600"
+                                        : "border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-100 dark:text-cyan-400 dark:hover:bg-cyan-900/30"
+                                }`}
                             >
                                 {cat}
                             </Badge>
@@ -66,7 +70,7 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
             <div className="grid gap-6">
                 {descendingPosts.map((post) => (
                     <Link key={post.slug} href={`/blog/posts/${post.slug}`} className="block no-underline">
-                        <Card className="overflow-hidden border border-slate-200 bg-white transition-shadow hover:shadow-md dark:border-slate-700 dark:bg-slate-800">
+                        <Card className="overflow-hidden border border-slate-200 bg-white transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-cyan-700 dark:hover:shadow-[0_0_15px_rgba(8,145,178,0.15)]">
                             <CardHeader className="pb-2">
                                 <CardTitle className="text-xl font-bold text-slate-800 dark:text-slate-100">
                                     {post.frontmatter.title}
@@ -91,7 +95,7 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
                                         <Badge
                                             key={tag}
                                             variant="secondary"
-                                            className="bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300"
+                                            className="bg-blue-50 text-blue-500 dark:bg-cyan-900/30 dark:text-cyan-300"
                                         >
                                             <TagIcon className="mr-1 h-3 w-3" />
                                             {tag}
