@@ -12,6 +12,7 @@ export interface Frontmatter {
     tags: string[];
     description: string;
     image?: string;
+    language: string;
 }
 
 export interface Post {

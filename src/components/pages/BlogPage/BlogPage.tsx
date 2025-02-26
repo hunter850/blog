@@ -20,6 +20,7 @@ import type { Post } from "@/types";
 
 export interface BlogPageProps {
     category?: string;
+    locale: string;
 }
 
 function sortByDate(a: Post, b: Post) {
@@ -35,11 +36,14 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
         notFound();
     }
 
-    // 获取文章并按日期排序（最新的在最上面）
+    // 取得文章並按日期排序（最新的在最上面）
     const posts = category === null || category === "all" ? await getAllPosts() : await getPostsByCategory(category);
 
+    // 按語言過濾文章
+    const postsByLanguage = posts.filter((post) => post.frontmatter.language === props.locale);
+
     // 按日期排序文章
-    const descendingPosts = posts.sort(sortByDate);
+    const descendingPosts = postsByLanguage.sort(sortByDate);
 
     return (
         <NarrowContentTemplate>
@@ -69,7 +73,11 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
             {/* 文章列表 */}
             <div className="grid gap-6">
                 {descendingPosts.map((post) => (
-                    <Link key={post.slug} href={`/blog/posts/${post.slug}`} className="block no-underline">
+                    <Link
+                        key={post.slug + post.frontmatter.language}
+                        href={`/blog/posts/${post.slug}`}
+                        className="block no-underline"
+                    >
                         <Card className="overflow-hidden border border-slate-200 bg-white transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-cyan-700 dark:hover:shadow-[0_0_15px_rgba(8,145,178,0.15)]">
                             <CardHeader className="pb-2">
                                 <CardTitle className="text-xl font-bold text-slate-800 dark:text-slate-100">

@@ -10,7 +10,7 @@ export interface BlogProps {
 
 export default async function Blog(props: BlogProps) {
     const params = await props.params;
-    return <BlogPage category={params.category} />;
+    return <BlogPage category={params.category} locale={params.locale} />;
 }
 
 export async function generateStaticParams() {

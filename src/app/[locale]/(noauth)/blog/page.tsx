@@ -7,10 +7,15 @@ export function generateStaticParams() {
     return LOCALES.map((locale) => ({ locale }));
 }
 
-export default async function Blog(): Promise<React.JSX.Element> {
+export interface BlogPageProps {
+    params: Promise<{ locale: string }>;
+}
+
+export default async function Blog(props: BlogPageProps): Promise<React.JSX.Element> {
+    const params = await props.params;
     return (
         <Fragment>
-            <BlogPage />
+            <BlogPage locale={params.locale} />
         </Fragment>
     );
 }
