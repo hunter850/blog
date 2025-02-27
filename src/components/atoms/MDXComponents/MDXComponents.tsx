@@ -114,7 +114,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
             className="!border !border-solid !border-slate-300 px-4 py-3 text-sm text-slate-600 dark:!border-slate-600 dark:text-slate-300"
         />
     ),
-    hr: () => <hr className="my-8 !border-t !border-solid !border-slate-200 dark:border-slate-700" />,
+    hr: () => <hr className="my-8 h-[2px] bg-slate-200 dark:bg-slate-700" />,
     pre: (props) => (
         <div className="relative">
             <CodeBlockCopyButton textToCopy={props.rawcontent} />
