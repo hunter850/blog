@@ -30,13 +30,25 @@ export interface PostsPageProps {
 }
 
 const components: MDXRemoteProps["components"] = {
-    h1: (props) => <h1 {...props} className="mb-4 mt-8 text-5xl font-bold text-slate-800 dark:text-slate-100" />,
-    h2: (props) => <h2 {...props} className="mb-4 mt-6 text-4xl font-bold text-slate-800 dark:text-slate-100" />,
-    h3: (props) => <h3 {...props} className="mb-3 mt-5 text-3xl font-bold text-slate-800 dark:text-slate-100" />,
-    h4: (props) => <h4 {...props} className="mb-2 mt-4 text-2xl font-bold text-slate-800 dark:text-slate-100" />,
-    h5: (props) => <h5 {...props} className="mb-2 mt-3 text-xl font-bold text-slate-800 dark:text-slate-100" />,
-    h6: (props) => <h6 {...props} className="mb-2 mt-3 text-lg font-bold text-slate-800 dark:text-slate-100" />,
-    p: (props) => <p {...props} className="my-4 text-lg text-slate-700 dark:text-slate-300" />,
+    h1: (props) => (
+        <h1 {...props} className="mb-4 mt-8 text-4xl font-bold text-slate-800 dark:text-slate-100 md:text-5xl" />
+    ),
+    h2: (props) => (
+        <h2 {...props} className="mb-4 mt-6 text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl" />
+    ),
+    h3: (props) => (
+        <h3 {...props} className="mb-3 mt-5 text-2xl font-bold text-slate-800 dark:text-slate-100 md:text-3xl" />
+    ),
+    h4: (props) => (
+        <h4 {...props} className="mb-2 mt-4 text-xl font-bold text-slate-800 dark:text-slate-100 md:text-2xl" />
+    ),
+    h5: (props) => (
+        <h5 {...props} className="mb-2 mt-3 text-lg font-bold text-slate-800 dark:text-slate-100 md:text-xl" />
+    ),
+    h6: (props) => (
+        <h6 {...props} className="mb-2 mt-3 text-base font-bold text-slate-800 dark:text-slate-100 md:text-lg" />
+    ),
+    p: (props) => <p {...props} className="my-4 text-base text-slate-700 dark:text-slate-300 md:text-lg" />,
     strong: (props) => <strong {...props} className="font-bold" />,
     em: (props) => <em {...props} className="italic" />,
     del: (props) => <del {...props} className="text-slate-500 line-through dark:text-slate-400" />,
@@ -128,6 +140,14 @@ const components: MDXRemoteProps["components"] = {
         />
     ),
     hr: () => <hr className="my-8 !border-t !border-solid !border-slate-200 dark:border-slate-700" />,
+    pre: (props) => (
+        <div className="relative">
+            <CodeBlockCopyButton textToCopy={props.rawcontent} />
+            <pre className="overflow-auto rounded-md bg-gray-100 dark:bg-gray-800">
+                <div className="w-fit p-4">{props.children}</div>
+            </pre>
+        </div>
+    ),
     code: (props) => {
         const isInline = typeof props.children === "string";
         if (isInline) {
@@ -208,14 +228,6 @@ async function PostsPage(props: PostsPageProps): Promise<React.JSX.Element> {
                             source={fileContent}
                             components={{
                                 ...components,
-                                pre: (props) => (
-                                    <div className="relative">
-                                        <CodeBlockCopyButton textToCopy={props.rawcontent} />
-                                        <pre className="overflow-auto rounded-md bg-gray-100 p-4 dark:bg-gray-800">
-                                            {props.children}
-                                        </pre>
-                                    </div>
-                                ),
                             }}
                             options={{
                                 parseFrontmatter: true,
