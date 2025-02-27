@@ -12,9 +12,9 @@ export interface RootTemplateProps {
 function RootTemplate(props: RootTemplateProps): React.JSX.Element {
     return (
         <>
-            <div className="flex min-h-screen flex-col">
+            <div className="relative flex min-h-screen flex-col">
                 <Header />
-                {props.children}
+                <main className="flex-grow overflow-hidden">{props.children}</main>
                 <Footer />
                 <ScrollToTopButton />
             </div>

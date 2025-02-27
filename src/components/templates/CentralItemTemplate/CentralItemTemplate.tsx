@@ -7,9 +7,9 @@ export interface CentralItemTemplateProps {
 
 function CentralItemTemplate(props: CentralItemTemplateProps): React.JSX.Element {
     return (
-        <main className="container mx-auto flex flex-grow flex-col items-center justify-center space-y-6 px-4 py-8 text-center">
+        <div className="absolute left-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center space-y-6 px-4 py-8 text-center">
             {props.children}
-        </main>
+        </div>
     );
 }
 
