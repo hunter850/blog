@@ -1,4 +1,4 @@
-import { Roboto, Roboto_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -7,8 +7,6 @@ import { routing } from "@/i18n/routing";
 import "@/app/globals.css";
 // components
 import RootTemplate from "@/components/templates/RootTemplate";
-// datas
-import favicon from "@/../public/images/favicon.ico";
 // types
 import type { Metadata } from "next";
 
@@ -29,7 +27,7 @@ export const metadata: Metadata = {
     publisher: "Kevin Luo",
     icons: {
         icon: [
-            { url: favicon.src },
+            { url: "/favicon.ico" },
             { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
             { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
             { url: "/images/favicon-96x96.png", sizes: "96x96", type: "image/png" },
