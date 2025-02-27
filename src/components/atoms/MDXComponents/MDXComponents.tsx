@@ -129,7 +129,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
             return (
                 <code
                     {...props}
-                    className="mx-0.5 rounded bg-gray-100 px-1.5 py-0.5 font-mono text-lg text-slate-800 dark:bg-slate-700 dark:text-slate-100"
+                    className="mx-1 rounded bg-gray-100 px-1.5 py-0.5 font-mono text-lg text-slate-800 dark:bg-slate-700 dark:text-slate-100"
                 />
             );
         }
