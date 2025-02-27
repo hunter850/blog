@@ -5,6 +5,8 @@ import { getMessages } from "next-intl/server";
 import ThemeProvider from "@/providers/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import "@/app/globals.css";
+// components
+import RootTemplate from "@/components/templates/RootTemplate";
 // datas
 import favicon from "@/../public/images/favicon.ico";
 // types
@@ -117,7 +119,9 @@ export default async function LocaleLayout({
         <html suppressHydrationWarning lang={locale}>
             <body className={`${roboto.variable} antialiased`} id="root">
                 <ThemeProvider>
-                    <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+                    <NextIntlClientProvider messages={messages}>
+                        <RootTemplate>{children}</RootTemplate>
+                    </NextIntlClientProvider>
                 </ThemeProvider>
             </body>
         </html>
