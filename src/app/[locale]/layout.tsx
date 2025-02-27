@@ -19,12 +19,6 @@ const roboto = Roboto({
     variable: "--font-roboto",
 });
 
-const robotoMono = Roboto_Mono({
-    weight: ["300", "400", "500", "700"],
-    subsets: ["latin"],
-    display: "swap",
-    variable: "--font-roboto-mono",
-});
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_DOMAIN!),
     title: "Kevin | blog",

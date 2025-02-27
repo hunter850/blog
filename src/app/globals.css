@@ -8,7 +8,6 @@
     background: none repeat scroll 0 0 transparent;
     border: medium none;
     border-spacing: 0;
-    font-family: var(--font-roboto), sans-serif;
     font-size: 16px;
     font-weight: normal;
     line-height: 1.42rem;
@@ -20,10 +19,6 @@
     text-indent: 0;
     scrollbar-width: 6px;
     scrollbar-color: hsl(var(--border)) transparent;
-}
-
-body {
-    font-family: var(--font-roboto), sans-serif;
 }
 
 button:focus {
@@ -50,7 +45,7 @@ html code[data-theme*=" "],
 html code[data-theme*=" "] span {
     color: var(--shiki-light);
     background-color: var(--shiki-light-bg);
-    font-family: var(--font-roboto-mono), ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 html.dark code[data-theme*=" "],
