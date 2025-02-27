@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 // components
 // import Link from "next/link";
 import { Link } from "@/i18n/routing";
-import NarrowContentTemplate from "@/components/templates/NarrowContentTemplate";
+import NarrowContentTemplate from "@/components/templates/NarrowContentTemplate/NarrowContentTemplate";
+import BlogContent from "@/components/organisms/BlogContent/BlogContent";
 // utils
 import getAllPosts from "@/utils/getAllPosts";
 import getPostsByCategory from "@/utils/getPostsByCategory";
@@ -53,80 +54,13 @@ async function BlogPage(props: BlogPageProps): Promise<React.JSX.Element> {
 
     return (
         <NarrowContentTemplate>
-            {/* 分類導覽列 */}
-            <div className="mb-8">
-                <h2 className="mb-4 text-xl font-semibold text-slate-700 dark:text-slate-200">{t("categories")}</h2>
-                <div className="flex flex-wrap gap-2">
-                    {(blogCategories as string[]).map((cat) => (
-                        <Link key={cat} href={`/blog/${cat}`}>
-                            <Badge
-                                variant={
-                                    category === cat || (category === null && cat === "all") ? "default" : "outline"
-                                }
-                                className={`cursor-pointer transition-colors ${
-                                    category === cat || (category === null && cat === "all")
-                                        ? "bg-slate-700 hover:bg-slate-800 dark:bg-cyan-700 dark:hover:bg-cyan-600"
-                                        : "border-slate-300 text-slate-700 hover:border-slate-400 hover:bg-slate-100 dark:text-cyan-400 dark:hover:bg-cyan-900/30"
-                                }`}
-                            >
-                                {cat}
-                            </Badge>
-                        </Link>
-                    ))}
-                </div>
-            </div>
-
-            {/* 文章列表 */}
-            <div className="grid gap-6">
-                {descendingPosts.map((post) => (
-                    <Link
-                        key={post.slug + post.frontmatter.language}
-                        href={`/blog/posts/${post.slug}`}
-                        className="block no-underline"
-                    >
-                        <Card className="overflow-hidden border border-slate-200 bg-white shadow-[1px_2px_6px_0px_rgba(0,_0,_0,_0.1)] transition-shadow hover:shadow-[2px_4px_8px_2px_rgba(0,_0,_0,_0.1)] dark:border-slate-700 dark:bg-slate-800 dark:hover:border-cyan-700 dark:hover:shadow-[0_0_15px_rgba(8,145,178,0.15)]">
-                            <CardHeader className="pb-2">
-                                <CardTitle className="text-xl font-bold text-slate-800 dark:text-slate-100">
-                                    {post.frontmatter.title}
-                                </CardTitle>
-                                {post.frontmatter.date && (
-                                    <div className="mt-1 flex items-center text-sm text-slate-500 dark:text-slate-400">
-                                        <CalendarIcon className="mr-1 h-4 w-4" />
-                                        <span>
-                                            {format(parseISO(post.frontmatter.date), "yyyy-MM-dd", { locale: zhTW })}
-                                        </span>
-                                    </div>
-                                )}
-                            </CardHeader>
-                            <CardContent>
-                                <CardDescription className="text-slate-600 dark:text-slate-300">
-                                    {post.frontmatter.description}
-                                </CardDescription>
-                            </CardContent>
-                            {post.frontmatter.tags && (
-                                <CardFooter className="flex flex-wrap gap-2 pt-0">
-                                    {post.frontmatter.tags.map((tag: string) => (
-                                        <Badge
-                                            key={tag}
-                                            variant="secondary"
-                                            className="bg-blue-50 text-blue-500 dark:bg-cyan-900/30 dark:text-cyan-300"
-                                        >
-                                            <TagIcon className="mr-1 h-3 w-3" />
-                                            {tag}
-                                        </Badge>
-                                    ))}
-                                </CardFooter>
-                            )}
-                        </Card>
-                    </Link>
-                ))}
-            </div>
-
-            {descendingPosts.length === 0 && (
-                <div className="py-12 text-center">
-                    <p className="text-slate-600 dark:text-slate-300">{t("noArticles")}</p>
-                </div>
-            )}
+            <BlogContent
+                categories={blogCategories as string[]}
+                currentCategory={category}
+                posts={descendingPosts}
+                categoryTitle={t("categories")}
+                emptyMessage={t("noArticles")}
+            />
         </NarrowContentTemplate>
     );
 }
