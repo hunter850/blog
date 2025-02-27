@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 // components
-import Link from "next/link";
+// import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import NarrowContentTemplate from "@/components/templates/NarrowContentTemplate";
 // utils
 import getAllPosts from "@/utils/getAllPosts";
