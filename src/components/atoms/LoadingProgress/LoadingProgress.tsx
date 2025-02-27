@@ -51,7 +51,7 @@ function LoadingProgress() {
             {mounted &&
                 createPortal(
                     loading && (
-                        <div className="h-1 w-full overflow-hidden bg-gray-200 dark:bg-gray-700">
+                        <div className="fixed left-0 top-0 z-50 h-1 w-full overflow-hidden bg-gray-200 dark:bg-gray-700">
                             <div
                                 className="animate-loading-progress h-full bg-gradient-to-r from-blue-500 to-cyan-500"
                                 style={{
