@@ -17,7 +17,7 @@ function Header() {
                 <div className="flex h-16 items-center justify-between">
                     <Logo />
                     <div className="hidden items-center space-x-4 md:flex">
-                        <NavMenu />
+                        <NavMenu inSheet={false} />
                         <LanguageDropdown />
                         <ThemeSwitcher />
                     </div>
@@ -40,7 +40,7 @@ function Header() {
                                     <SheetDescription className="sr-only">{t("menu")}</SheetDescription>
                                 </SheetHeader>
                                 <div className="mt-4">
-                                    <NavMenu />
+                                    <NavMenu inSheet={true} />
                                     <div className="mt-4">
                                         <LanguageDropdown />
                                     </div>
