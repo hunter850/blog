@@ -2,10 +2,12 @@ import { notFound } from "next/navigation";
 import NarrowContentTemplate from "@/components/templates/NarrowContentTemplate";
 import { compileMDX, MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
 import themeLight from "shiki/dist/themes/one-light.mjs";
 import themeDark from "shiki/dist/themes/one-dark-pro.mjs";
 import { createHighlighter } from "shiki/bundle/web";
 import rehypePrettyCode from "rehype-pretty-code";
+import rehypeMathjax from "rehype-mathjax";
 import * as fs from "fs";
 import * as path from "path";
 import Image from "next/image";
@@ -232,8 +234,9 @@ async function PostsPage(props: PostsPageProps): Promise<React.JSX.Element> {
                             options={{
                                 parseFrontmatter: true,
                                 mdxOptions: {
-                                    remarkPlugins: [remarkGfm],
+                                    remarkPlugins: [remarkGfm, remarkMath],
                                     rehypePlugins: [
+                                        [rehypeMathjax, {}],
                                         [
                                             rehypePrettyCode,
                                             {
