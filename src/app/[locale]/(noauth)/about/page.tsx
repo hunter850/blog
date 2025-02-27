@@ -7,7 +7,6 @@ export function generateStaticParams() {
 }
 
 async function About(): Promise<React.JSX.Element> {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
     return <AboutPage />;
 }
 
