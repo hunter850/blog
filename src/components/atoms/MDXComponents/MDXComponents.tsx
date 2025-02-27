@@ -129,7 +129,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
             return (
                 <code
                     {...props}
-                    className="mx-1 rounded bg-gray-100 px-1.5 py-0.5 font-mono text-lg text-slate-800 dark:bg-slate-700 dark:text-slate-100"
+                    className="mx-1 rounded bg-gray-100 px-1.5 py-0.5 font-mono text-base text-slate-800 dark:bg-slate-700 dark:text-slate-100 md:text-lg"
                 />
             );
         }
@@ -146,7 +146,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
     figcaption: (props) => (
         <figcaption
             {...props}
-            className="rounded-t-md bg-slate-200 px-4 py-1 text-sm text-slate-500 dark:bg-slate-700 dark:text-slate-400"
+            className="truncate rounded-t-md bg-slate-200 px-4 py-1 text-sm text-slate-500 dark:bg-slate-700 dark:text-slate-400"
         />
     ),
 };
