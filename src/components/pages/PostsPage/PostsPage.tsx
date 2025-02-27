@@ -225,7 +225,7 @@ async function PostsPage(props: PostsPageProps): Promise<React.JSX.Element> {
                             </div>
                         )}
                     </header>
-                    <div className="prose prose-slate dark:prose-invert max-w-none">
+                    <div className="max-w-none">
                         <MDXRemote
                             source={fileContent}
                             components={{
