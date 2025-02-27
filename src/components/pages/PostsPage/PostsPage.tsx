@@ -75,7 +75,7 @@ const components: MDXRemoteProps["components"] = {
     ),
     ol: (props) => <ol {...props} className="ol group my-4 list-decimal pl-6 text-slate-700 dark:text-slate-300" />,
     li: (props) => {
-        const isInline = typeof props.children === "string";
+        const isInline = typeof props.children === "string" || typeof props?.children?.[0] === "string";
         return (
             <li
                 {...props}
