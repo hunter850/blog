@@ -6,19 +6,19 @@ import type { MDXRemoteProps } from "next-mdx-remote/rsc";
 
 export const MDXComponents: MDXRemoteProps["components"] = {
     h1: (props) => (
-        <h1 {...props} className="mb-4 mt-8 text-4xl font-bold text-slate-800 dark:text-slate-100 md:text-5xl" />
+        <h1 {...props} className="mb-4 mt-8 text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl" />
     ),
     h2: (props) => (
-        <h2 {...props} className="mb-4 mt-6 text-3xl font-bold text-slate-800 dark:text-slate-100 md:text-4xl" />
+        <h2 {...props} className="mb-4 mt-6 text-2xl font-bold text-slate-800 dark:text-slate-100 md:text-3xl" />
     ),
     h3: (props) => (
-        <h3 {...props} className="mb-3 mt-5 text-2xl font-bold text-slate-800 dark:text-slate-100 md:text-3xl" />
+        <h3 {...props} className="mb-3 mt-5 text-xl font-bold text-slate-800 dark:text-slate-100 md:text-2xl" />
     ),
     h4: (props) => (
-        <h4 {...props} className="mb-2 mt-4 text-xl font-bold text-slate-800 dark:text-slate-100 md:text-2xl" />
+        <h4 {...props} className="mb-2 mt-4 text-lg font-bold text-slate-800 dark:text-slate-100 md:text-xl" />
     ),
     h5: (props) => (
-        <h5 {...props} className="mb-2 mt-3 text-lg font-bold text-slate-800 dark:text-slate-100 md:text-xl" />
+        <h5 {...props} className="mb-2 mt-3 text-base font-bold text-slate-800 dark:text-slate-100 md:text-lg" />
     ),
     h6: (props) => (
         <h6 {...props} className="mb-2 mt-3 text-base font-bold text-slate-800 dark:text-slate-100 md:text-lg" />
@@ -131,7 +131,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
             return (
                 <code
                     {...props}
-                    className="mx-1 whitespace-nowrap rounded bg-gray-100 px-1.5 py-0.5 font-mono text-base text-slate-800 dark:bg-slate-700 dark:text-slate-100 md:text-lg"
+                    className="mx-1 whitespace-nowrap rounded bg-gray-100 px-1.5 py-0.5 font-mono text-slate-800 dark:bg-slate-700 dark:text-slate-100"
                 />
             );
         }
