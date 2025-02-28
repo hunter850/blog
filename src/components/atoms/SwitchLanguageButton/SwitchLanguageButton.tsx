@@ -1,3 +1,5 @@
+"use client";
+
 import { usePathname, Link } from "@/i18n/routing";
 // components
 import { Check } from "lucide-react";
