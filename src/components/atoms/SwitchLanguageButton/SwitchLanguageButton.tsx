@@ -1,8 +1,4 @@
-"use client";
-
-import { useMemo } from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { usePathname, Link } from "@/i18n/routing";
 // components
 import { Check } from "lucide-react";
 // contexts
@@ -19,11 +15,12 @@ export interface SwitchLanguageButtonProps {
 function SwitchLanguageButton(props: SwitchLanguageButtonProps): React.JSX.Element {
     const locale = useLocale();
     const pathname = usePathname();
-    const newPath = useMemo(() => {
-        return pathname.replace(/^\/([^/]+)(\/|$)/, `/${props.locale}$2`);
-    }, [pathname, props.locale]);
     return (
-        <Link href={newPath} className={cn("flex h-full w-full cursor-pointer justify-between px-2 py-1.5")}>
+        <Link
+            href={pathname}
+            locale={props.locale}
+            className={cn("flex h-full w-full cursor-pointer justify-between px-2 py-1.5")}
+        >
             {props.children}
             {locale === props.locale && <Check className="ml-2 h-4 w-4" />}
         </Link>
