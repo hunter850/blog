@@ -58,8 +58,9 @@ async function getAllCategories() {
 async function parseBlogCategories() {
     try {
         const categories = await getAllCategories();
+        const categoriesWithoutNull = categories.filter((category) => typeof category === "string" && category !== "");
+        const categoriesWithoutDuplicates = Array.from(new Set(["all", ...categoriesWithoutNull]));
         const blogCategoriesConfigPath = path.join(process.cwd(), "src/config/blog_categories.json");
-        const categoriesWithoutDuplicates = Array.from(new Set(["all", ...categories]));
         fs.writeFileSync(blogCategoriesConfigPath, JSON.stringify(categoriesWithoutDuplicates));
     } catch (error) {
         console.error("Error parsing blog categories: ", error);
