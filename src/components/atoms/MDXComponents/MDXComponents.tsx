@@ -68,7 +68,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
         return (
             <li
                 {...props}
-                className={cn(`my-1 list-outside text-lg`, [
+                className={cn(`my-1 list-outside text-base md:text-lg`, [
                     isInline ? "group-[.ol]:list-decimal group-[.ul]:list-disc" : "",
                 ])}
             />
