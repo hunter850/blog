@@ -35,7 +35,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
     a: (props) => (
         <a
             {...props}
-            className="text-blue-600 underline underline-offset-2 hover:text-blue-800 dark:text-cyan-400 dark:hover:text-cyan-300"
+            className="text-blue-600 underline underline-offset-2 [font-size:inherit] hover:text-blue-800 dark:text-cyan-400 dark:hover:text-cyan-300"
             target={props.href?.startsWith("http") ? "_blank" : undefined}
             rel={props.href?.startsWith("http") ? "noopener noreferrer" : undefined}
         />
