@@ -67,7 +67,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
     ),
     ol: (props) => <ol {...props} className="ol group my-4 list-decimal pl-6 text-slate-700 dark:text-slate-300" />,
     li: (props) => {
-        const isInline = typeof props.children === "string" || typeof props?.children?.[0] === "string";
+        const isInline = props.className === "task-list-item" ? false : true;
         return (
             <li
                 {...props}
