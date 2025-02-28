@@ -24,7 +24,10 @@ export const MDXComponents: MDXRemoteProps["components"] = {
         <h6 {...props} className="mb-2 mt-3 text-base font-bold text-slate-800 dark:text-slate-100 md:text-lg" />
     ),
     p: (props) => (
-        <p {...props} className="my-4 text-justify text-base text-slate-700 dark:text-slate-300 md:text-lg" />
+        <p
+            {...props}
+            className="my-4 text-start text-base text-slate-700 dark:text-slate-300 sm:text-justify md:text-lg"
+        />
     ),
     strong: (props) => <strong {...props} className="font-bold" />,
     em: (props) => <em {...props} className="italic" />,
@@ -131,7 +134,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
             return (
                 <code
                     {...props}
-                    className="mx-1 whitespace-nowrap rounded bg-gray-100 px-1.5 py-0.5 font-mono text-slate-800 dark:bg-slate-700 dark:text-slate-100"
+                    className="mx-1 inline-block max-w-full break-all rounded bg-gray-100 px-1.5 py-px font-mono text-slate-800 dark:bg-slate-700 dark:text-slate-100 md:break-normal"
                 />
             );
         }
