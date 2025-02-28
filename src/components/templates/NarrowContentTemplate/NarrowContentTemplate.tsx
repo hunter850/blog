@@ -8,7 +8,7 @@ export interface DefaultTemplateProps {
 function NarrowContentTemplate(props: DefaultTemplateProps): React.JSX.Element {
     return (
         <>
-            <div className="container mx-auto mt-16 max-w-4xl px-4 py-8">{props.children}</div>
+            <div className="container mx-auto mt-6 max-w-4xl px-4 py-8 md:mt-16">{props.children}</div>
         </>
     );
 }
