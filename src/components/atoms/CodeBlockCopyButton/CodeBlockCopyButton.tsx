@@ -29,10 +29,10 @@ function CodeBlockCopyButton(props: CodeBlockCopyButtonProps) {
     }, []);
     return (
         <button
-            className="absolute right-2 top-2 text-black/30 hover:text-black/50 dark:text-white/30 dark:hover:text-white/50"
+            className="h-5 w-5 text-black/30 hover:text-black/50 dark:text-white/30 dark:hover:text-white/50"
             onClick={handleCopy}
         >
-            {showCopied ? <Check /> : <Copy />}
+            {showCopied ? <Check size={20} /> : <Copy size={20} />}
         </button>
     );
 }

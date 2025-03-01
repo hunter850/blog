@@ -120,14 +120,15 @@ export const MDXComponents: MDXRemoteProps["components"] = {
         />
     ),
     hr: () => <hr className="my-8 h-[2px] bg-slate-200 dark:bg-slate-700" />,
-    pre: (props) => (
-        <div className="relative">
-            <CodeBlockCopyButton textToCopy={props.rawcontent} />
-            <pre className="overflow-auto rounded-b-md rounded-t-md bg-gray-100 group-[.has-title]:rounded-t-none dark:bg-gray-800">
-                <div className="w-fit p-4">{props.children}</div>
-            </pre>
-        </div>
-    ),
+    pre: (props) => {
+        return (
+            <div className="relative">
+                <pre className="overflow-auto rounded-b-md bg-gray-100 dark:bg-gray-800">
+                    <div className="w-fit p-4">{props.children}</div>
+                </pre>
+            </div>
+        );
+    },
     code: (props) => {
         const isInline = typeof props.children === "string";
         if (isInline) {
@@ -141,19 +142,31 @@ export const MDXComponents: MDXRemoteProps["components"] = {
         return <code {...props} />;
     },
     figure: (props) => {
-        const hasTitle = Array.isArray(props.children);
+        const { children, ...rest } = props;
+        const hasTitle = Array.isArray(children);
+        const title = hasTitle ? (children?.[0]?.props?.children ?? "") : "";
+        const language = hasTitle
+            ? (children?.[1]?.props?.["data-language"] ?? "")
+            : (children?.props?.["data-language"] ?? "");
+        const copyButtonContent = hasTitle
+            ? (children?.[1]?.props?.rawcontent ?? "")
+            : (children?.props?.rawcontent ?? "");
         return (
-            <figure {...props} className={cn("my-4", [hasTitle ? "has-title group" : ""])}>
-                {props.children}
+            <figure {...rest} className={cn("my-4", [hasTitle ? "has-title group" : ""])}>
+                <figcaption className="flex min-h-7 items-center justify-between truncate rounded-t-md bg-slate-200 px-4 py-2 text-sm text-slate-500 dark:bg-slate-700 dark:text-slate-400">
+                    <span className="truncate text-sm">{title}</span>
+                    <div className="flex items-center gap-2">
+                        <span className="truncate text-sm">
+                            {language === "plaintext" || language === "text" ? "" : language}
+                        </span>
+                        <CodeBlockCopyButton textToCopy={copyButtonContent} />
+                    </div>
+                </figcaption>
+                {children}
             </figure>
         );
     },
-    figcaption: (props) => (
-        <figcaption
-            {...props}
-            className="truncate rounded-t-md bg-slate-200 px-4 py-1 text-sm text-slate-500 dark:bg-slate-700 dark:text-slate-400"
-        />
-    ),
+    figcaption: () => null,
 };
 
 export default MDXComponents;
