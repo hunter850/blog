@@ -19,8 +19,9 @@ export default async function Posts(props: PostsProps) {
     return <PostsPage slugs={params.slug} />;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string[] } }): Promise<Metadata> {
+export async function generateMetadata(props: { params: Promise<{ slug: string[] }> }): Promise<Metadata> {
     try {
+        const params = await props.params;
         // 取得文章路徑
         const filepath: string = path.join(process.cwd(), `src/contents/${params.slug.join("/")}.mdx`);
 
