@@ -2,14 +2,11 @@
 
 import { Fragment } from "react";
 import { usePathname } from "next/navigation";
-// contexts
-import { useTranslations } from "next-intl";
 // utils
 import { cn } from "@/lib/utils";
 
 function MsLogoutButton(): React.JSX.Element {
     const pathname = usePathname();
-    const t = useTranslations();
     function logoutHandler() {
         console.log("pathname: ", pathname);
         localStorage.removeItem("locale");
@@ -20,7 +17,7 @@ function MsLogoutButton(): React.JSX.Element {
     return (
         <Fragment>
             <button onClick={logoutHandler} className={cn("cursor-pointer")}>
-                {t("logout")}
+                登出
             </button>
         </Fragment>
     );

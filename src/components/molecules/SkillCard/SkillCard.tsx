@@ -1,6 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 
 interface SkillCardProps {
     skill: {
@@ -13,8 +12,6 @@ interface SkillCardProps {
 }
 
 function SkillCard({ skill }: SkillCardProps) {
-    const t = useTranslations("aboutPage");
-
     return (
         <Card className="border-blue-500/20 transition-all hover:border-cyan-500/40 dark:bg-white/[0.04] dark:hover:bg-white/[0.08]">
             <CardContent className="p-4">
@@ -29,12 +26,12 @@ function SkillCard({ skill }: SkillCardProps) {
                         />
                     </div>
                     <div className="w-full text-center sm:text-left">
-                        <h3 className="text-center text-xl font-medium md:text-left">{t(skill.title)}</h3>
+                        <h3 className="text-center text-xl font-medium md:text-left">{skill.title}</h3>
                         <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
                             {skill.content.map((item, index) => (
                                 <li key={index} className="flex items-start">
                                     <span className="mr-2">•</span>
-                                    <span>{t(item)}</span>
+                                    <span>{item}</span>
                                 </li>
                             ))}
                         </ul>

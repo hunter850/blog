@@ -1,9 +1,5 @@
 import { Roboto } from "next/font/google";
-import { notFound } from "next/navigation";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
 import ThemeProvider from "@/providers/ThemeProvider";
-import { routing } from "@/i18n/routing";
 import "@/app/globals.css";
 // components
 import RootTemplate from "@/components/templates/RootTemplate";
@@ -27,7 +23,6 @@ export const metadata: Metadata = {
     publisher: "Kevin Luo",
     icons: {
         icon: [
-            { url: "/favicon.ico" },
             { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
             { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
             { url: "/images/favicon-96x96.png", sizes: "96x96", type: "image/png" },
@@ -92,28 +87,15 @@ export const metadata: Metadata = {
 
 export default async function LocaleLayout({
     children,
-    params,
 }: {
     children: React.ReactNode;
     params: Promise<{ locale: string }>;
 }) {
-    // Ensure that the incoming `locale` is valid
-    const locale = (await params).locale;
-    if (!routing.locales.includes(locale as any)) {
-        notFound();
-    }
-
-    // Providing all messages to the client
-    // side is the easiest way to get started
-    const messages = await getMessages();
-
     return (
-        <html suppressHydrationWarning lang={locale}>
+        <html suppressHydrationWarning lang="zh-TW">
             <body className={`${roboto.variable} antialiased`} id="root">
                 <ThemeProvider>
-                    <NextIntlClientProvider messages={messages}>
-                        <RootTemplate>{children}</RootTemplate>
-                    </NextIntlClientProvider>
+                    <RootTemplate>{children}</RootTemplate>
                 </ThemeProvider>
             </body>
         </html>

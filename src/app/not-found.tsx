@@ -1,13 +1,10 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { HomeIcon } from "lucide-react";
 
 export default function NotFound() {
-    const t = useTranslations("NotFound");
-
     return (
         <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-slate-100 to-slate-200 px-4 dark:from-slate-900 dark:to-slate-800">
             <h1 className="mb-12 mt-[-48px] text-[120px] font-bold leading-none tracking-tighter text-slate-300/50 dark:text-slate-500/50 sm:text-[180px]">
@@ -23,9 +20,11 @@ export default function NotFound() {
                     <div className="relative">
                         <div className="space-y-4">
                             <h2 className="text-center text-2xl font-semibold text-slate-800 dark:text-slate-100 sm:text-3xl">
-                                {t("title")}
+                                Page Not Found
                             </h2>
-                            <p className="text-center text-slate-600 dark:text-slate-400">{t("description")}</p>
+                            <p className="text-center text-slate-600 dark:text-slate-400">
+                                {"The page you are looking for doesn't exist or has been moved."}
+                            </p>
                         </div>
                     </div>
 
@@ -37,7 +36,7 @@ export default function NotFound() {
                     >
                         <Link href="/" className="group gap-2">
                             <HomeIcon className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
-                            {t("backHome")}
+                            Back to Home
                         </Link>
                     </Button>
                 </div>

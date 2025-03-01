@@ -2,14 +2,11 @@
 
 import { Fragment, useEffect } from "react";
 import { useRouter } from "next/navigation";
-// contexts
-import { useLocale } from "next-intl";
 // configs
 import { line_login_api } from "@/config/api_configs";
 
 function LineLoginPage(): React.JSX.Element {
     const router = useRouter();
-    const locale = useLocale();
     useEffect(() => {
         (async () => {
             const params = new URLSearchParams(window.location.search);
@@ -22,7 +19,7 @@ function LineLoginPage(): React.JSX.Element {
                     headers: {
                         "Content-Type": "application/json",
                     },
-                    body: JSON.stringify({ code, state, lang: locale }),
+                    body: JSON.stringify({ code, state, lang: "zh-TW" }),
                 });
                 const result = await response.json();
                 if (response.status <= 200 && response.status < 300 && result?.success === true) {

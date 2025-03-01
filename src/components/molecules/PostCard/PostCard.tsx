@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import PostCardHeader from "@/components/atoms/PostCardHeader/PostCardHeader";
 import PostCardContent from "@/components/atoms/PostCardContent/PostCardContent";
 import PostCardFooter from "@/components/atoms/PostCardFooter/PostCardFooter";

@@ -1,13 +1,11 @@
 import { personalInfo } from "@/config/personal_configs";
-import { useTranslations } from "next-intl";
 import CopyButton from "@/components/molecules/CopyButton";
 
 function ContactSection() {
-    const t = useTranslations("aboutPage");
 
     return (
         <div>
-            <h2 className="mb-2 text-xl font-semibold">{t("contactDetails")}</h2>
+            <h2 className="mb-2 text-xl font-semibold">聯絡方式</h2>
             <div className="space-y-2 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
                     <svg

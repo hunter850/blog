@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Progress } from "@/components/ui/progress";
 import { createPortal } from "react-dom";
 
 function LoadingProgress() {
@@ -45,7 +44,6 @@ function LoadingProgress() {
         setLoading(true);
     }, [pathname]); // 每次路由變更時，觸發 loading
 
-    // return <>{loading && <Progress value={progress} className="fixed left-0 top-0 h-1 w-full transition-all" />}</>;
     return (
         <>
             {mounted &&

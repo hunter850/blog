@@ -1,10 +1,8 @@
 "use client";
 
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { SheetClose } from "@/components/ui/sheet";
-// hooks
-import { useLocale } from "next-intl";
 // utils
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react"; // Added import for React
@@ -17,13 +15,8 @@ interface NavLinkProps {
 
 function NavLink({ href, children, inSheet }: NavLinkProps) {
     const pathname = usePathname();
-    const locale = useLocale();
-
-    // 移除語系前墜，方便後續判斷高亮
-    const currentPath = pathname.replace(`/${locale}`, "");
-
     // 判斷連結是否高亮
-    const isActive = href === "/" ? currentPath === "" : currentPath.startsWith(href);
+    const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
 
     return (
         <>

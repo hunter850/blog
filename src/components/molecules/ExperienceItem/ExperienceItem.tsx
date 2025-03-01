@@ -1,5 +1,3 @@
-import { useTranslations } from "next-intl";
-
 interface ExperienceItemProps {
     experience: {
         id: number;
@@ -10,13 +8,12 @@ interface ExperienceItemProps {
 }
 
 function ExperienceItem({ experience }: ExperienceItemProps) {
-    const t = useTranslations("aboutPage");
 
     return (
         <div className="relative pl-8">
-            <div className="mb-1 text-sm text-muted-foreground">{t(experience.time)}</div>
-            <h3 className="mb-2 text-lg font-medium">{t(experience.title)}</h3>
-            <p className="whitespace-pre-line text-sm text-muted-foreground">{t(experience.content)}</p>
+            <div className="mb-1 text-sm text-muted-foreground">{experience.time}</div>
+            <h3 className="mb-2 text-lg font-medium">{experience.title}</h3>
+            <p className="whitespace-pre-line text-sm text-muted-foreground">{experience.content}</p>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Link } from "@/i18n/routing";
+import Link from "next/link";
 
 export interface BlogCategoryBadgeProps {
     category: string;
