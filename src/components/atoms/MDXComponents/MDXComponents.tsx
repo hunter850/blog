@@ -29,9 +29,9 @@ export const MDXComponents: MDXRemoteProps["components"] = {
             className="my-4 text-start text-base text-slate-700 dark:text-slate-300 sm:text-justify md:text-lg"
         />
     ),
-    strong: (props) => <strong {...props} className="font-bold" />,
-    em: (props) => <em {...props} className="italic" />,
-    del: (props) => <del {...props} className="text-slate-500 line-through dark:text-slate-400" />,
+    strong: (props) => <strong {...props} className="font-bold [font-size:inherit]" />,
+    em: (props) => <em {...props} className="italic [font-size:inherit]" />,
+    del: (props) => <del {...props} className="text-slate-500 line-through [font-size:inherit] dark:text-slate-400" />,
     a: (props) => (
         <a
             {...props}
