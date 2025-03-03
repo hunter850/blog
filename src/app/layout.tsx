@@ -83,8 +83,8 @@ export const metadata: Metadata = {
     alternates: {
         canonical: "/",
     },
-    other: {
-        "google-site-verification": "rt5bv4apOibHZ7ZTGtIK_XpCRvtJloWcIOyyNOf9_ps",
+    verification: {
+        google: "rt5bv4apOibHZ7ZTGtIK_XpCRvtJloWcIOyyNOf9_ps",
     },
 };
 
