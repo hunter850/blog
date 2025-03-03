@@ -40,6 +40,7 @@ export const MDXComponents: MDXRemoteProps["components"] = {
             rel={props.href?.startsWith("http") ? "noopener noreferrer" : undefined}
         />
     ),
+    span: (props) => <span {...props} className="text-base md:text-lg" />,
     img: (props) => (
         <Image
             src={props.src || ""}
